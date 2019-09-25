@@ -32,9 +32,11 @@ public:
 	ShapeType getShapeType();
 
 	// Compute and return the perimeter of the isosceles triangle
+	// Return 0. if the isosceles triangle is invalid.
 	double getPerimeter();
 
 	// Compute and return the area of the isosceles triangle
+	// Return 0. if the isosceles triangle is invalid.
 	double getArea();
 
 	// Return true if the isoseles triangle is valid, i.e. valid condition for base and side lengths, false otherwise.

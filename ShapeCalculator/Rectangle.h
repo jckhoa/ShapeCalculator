@@ -8,54 +8,44 @@ class Rectangle : public Shape {
 public:
 
 	// Construct a rectangle with width and height set to zeros.
-	Rectangle() : width(0.), height(0.) {}
+	Rectangle();
 
 	// Construct a rectangle from width and height values
-	Rectangle(double width, double height) : width(width), height(height) {
+	Rectangle(double width, double height);
 
-	}
+	// Set the width and height of the rectangle
+	void setSize(double width, double height);
 
-	void setSize(double width, double height) {
-		this->width = width;
-		this->height = height;
-	}
+	// Return the width of the rectangle
+	double getWidth();
 
-	double getWidth() {
-		return width;
-	}
+	// Return the height of the rectangle
+	double getHeight();
 
-	double getHeight() {
-		return height;
-	}
+	// Return true if this rectangle is a square (width is equal to height), false otherwise.
+	bool isSquare();
 
-	bool isSquare() {
-		return width == height;
-	}
+	// return the shape type of the class
+	static ShapeType getClassShapeType();
 
 	/////// Overriding functions ///////////
 
-	double getPerimeter() {
-		return (width + height) * 2;
-	}
-
-	double getArea() {
-		return width * height;
-	}
-
-	bool isValid() {
-		return width > 0 && height > 0;
-	}
-
-
 	// Return the shape type of the object
-	ShapeType getShapeType() {
-		return ShapeType::Rectangle;
-	};
+	ShapeType getShapeType();
 
-	// return the shape type of the class
-	static ShapeType getClassShapeType() {
-		return ShapeType::Rectangle;
-	}
+	// Compute and return the perimeter of the rectangle.
+	// Return 0. if the rectangle is invalid.
+	double getPerimeter();
+
+	// Compute and return the area of the rectangle.
+	// Return 0. if the rectangle is invalid.
+	double getArea();
+
+	// Return true if the rectangle is valid (width and height are positive), false otherwise.
+	bool isValid();
+
 private:
-	double width, height;
+
+	double width; // width of the rectangle
+	double height; // heigh of the rectangle
 };

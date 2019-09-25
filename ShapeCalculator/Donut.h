@@ -31,9 +31,11 @@ public:
 	ShapeType getShapeType();
 
 	// Compute and return the perimeter of the donut
+	// Return 0. if the donut is invalid.
 	double getPerimeter();
 
 	// Compute and return the area of the donut
+	// Return 0. if the donut is invalid.
 	double getArea();
 
 	// Return true if the donut is valid (i.e. the internal and external circle are valid and their outlines do not overlap), false otherwise

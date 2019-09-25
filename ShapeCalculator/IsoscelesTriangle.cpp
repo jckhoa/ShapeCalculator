@@ -30,11 +30,11 @@ ShapeType IsoscelesTriangle::getShapeType() {
 };
 
 double IsoscelesTriangle::getPerimeter() {
+	if (!isValid()) return 0.;
 	return side * 2 + base;
 }
 
 double IsoscelesTriangle::getArea() {
-	// if the isosceles triangle is not valid, return 0.
 	if (!isValid()) return 0.;
 
 	// compute height from Pythagore theorem

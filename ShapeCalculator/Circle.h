@@ -29,13 +29,15 @@ public:
 	// Return the shape type of the object
 	ShapeType getShapeType();
 
-	// Compute and return the perimeter of the circle
+	// Compute and return the perimeter of the circle.
+	// Return 0. if the circle is invalid.
 	double getPerimeter();
 
 	// Compute and return the area of the circle
+	// Return 0. if the circle is invalid.
 	double getArea();
 
-	// Return true if the circle is valid (the radius is non-negative), false otherwise.
+	// Return true if the circle is valid (the radius is positive), false otherwise.
 	bool isValid();
 
 private:

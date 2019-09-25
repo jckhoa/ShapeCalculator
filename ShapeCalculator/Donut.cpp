@@ -38,12 +38,13 @@ ShapeType Donut::getShapeType() {
 };
 
 double Donut::getPerimeter() {
+	if (!isValid()) return 0.;
 	return ci.getPerimeter() + ce.getPerimeter();
 }
 
 double Donut::getArea() {
-	double area = ci.getArea() - ce.getArea();
-	return (area < 0) ? -area : area;
+	if (!isValid()) return 0.;
+	return ce.getArea() - ci.getArea();
 }
 
 bool Donut::isValid() {

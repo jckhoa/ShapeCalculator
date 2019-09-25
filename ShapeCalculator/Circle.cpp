@@ -21,10 +21,12 @@ ShapeType Circle::getShapeType() {
 };
 
 double Circle::getPerimeter() {
+	if (!isValid()) return 0.;
 	return radius * M_PI * 2;
 }
 
 double Circle::getArea() {
+	if (!isValid()) return 0.;
 	return radius * radius * M_PI;
 }
 
