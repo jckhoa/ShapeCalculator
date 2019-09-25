@@ -1,11 +1,11 @@
 #pragma once
 
-#include "Shape2D.h"
+#include "RectangleShape.h"
 
 
 // The Square class describes a square with its side length.
 
-class Square : public Shape {
+class Square : public RectangleShape {
 public:
 	// Construct a square with side lengths set to zeros.
 	Square();

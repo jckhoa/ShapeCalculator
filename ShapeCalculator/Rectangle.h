@@ -1,10 +1,10 @@
 #pragma once
 
-#include "Shape2D.h"
+#include "RectangleShape.h"
 
 // The Rectangle class describes a rectangle with its width and height.
 
-class Rectangle : public Shape {
+class Rectangle : public RectangleShape {
 public:
 
 	// Construct a rectangle with width and height set to zeros.
