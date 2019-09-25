@@ -17,7 +17,7 @@ public:
 	virtual ~Square();
 
 	// Set side length of the square
-	void setSideLength(double sideLength);
+	void setSize(double sideLength);
 
 	// Get side length of the square
 	double getSideLength();

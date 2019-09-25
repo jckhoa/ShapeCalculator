@@ -19,7 +19,7 @@ public:
 	virtual ~Circle();
 
 	// Set the radius of the circle
-	void setRadius(double radius);
+	void setSize(double radius);
 
 	// Return the radius of the circle
 	double getRadius();

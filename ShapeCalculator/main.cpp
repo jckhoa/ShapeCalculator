@@ -12,7 +12,7 @@ int main(void) {
 	
 	std::cout << "Test changing radius parameter";
 	std::cout << std::endl;
-	c.setRadius(5.);
+	c.setSize(5.);
 	std::cout << "Circle radius after change: " << c.getRadius() << std::endl;
 	std::cout << "Circle is valid? " << c.isValid() << std::endl;
 	std::cout << "Circle is valid (through base)? " << ((Shape*)&c)->isValid() << std::endl;
@@ -22,7 +22,7 @@ int main(void) {
 	std::cout << "Shape name through base: " << (((Shape*)&c)->getShapeType() == ShapeType::Circle) << std::endl;
 	
 	std::cout << std::endl;
-	c.setRadius(0.);
+	c.setSize(0.);
 	std::cout << "Circle radius after change: " << c.getRadius() << std::endl;
 	std::cout << "Circle is valid? " << c.isValid() << std::endl;
 	std::cout << "Circle is valid (through base)? " << ((Shape*)&c)->isValid() << std::endl;
@@ -30,7 +30,7 @@ int main(void) {
 	std::cout << "Circle area: " << c.getArea() << std::endl;
 	
 	std::cout << std::endl;
-	c.setRadius(-2.5);
+	c.setSize(-2.5);
 	std::cout << "Circle radius after change: " << c.getRadius() << std::endl;
 	std::cout << "Circle is valid? " << c.isValid() << std::endl;
 	std::cout << "Circle is valid (through base)? " << ((Shape*)&c)->isValid() << std::endl;

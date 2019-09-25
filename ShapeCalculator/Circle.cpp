@@ -6,7 +6,7 @@ Circle::Circle(double radius) : radius(radius) {}
 
 Circle::~Circle() {}
 
-void Circle::setRadius(double radius) {
+void Circle::setSize(double radius) {
 	this->radius = radius;
 }
 

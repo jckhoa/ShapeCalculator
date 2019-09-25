@@ -147,6 +147,7 @@
     <ClInclude Include="Donut.h" />
     <ClInclude Include="IsoscelesTriangle.h" />
     <ClInclude Include="Rectangle.h" />
+    <ClInclude Include="RectangleShape.h" />
     <ClInclude Include="RectangularTriangle.h" />
     <ClInclude Include="Shape.h" />
     <ClInclude Include="Shape2D.h" />
@@ -154,12 +155,17 @@
     <ClInclude Include="ShapeType.h" />
     <ClInclude Include="Square.h" />
     <ClInclude Include="Triangle.h" />
+    <ClInclude Include="TriangleShape.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Donut.cpp" />
     <ClCompile Include="IsoscelesTriangle.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
+    <ClCompile Include="RectangularTriangle.cpp" />
+    <ClCompile Include="Square.cpp" />
+    <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

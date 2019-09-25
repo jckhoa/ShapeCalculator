@@ -10,7 +10,7 @@ Square::Square(double sideLength) : side(sideLength) {
 
 Square::~Square() {}
 
-void Square::setSideLength(double sideLength) {
+void Square::setSize(double sideLength) {
 	side = sideLength;
 }
 

@@ -13,12 +13,12 @@ void Donut::setSize(double radius1, double radius2) {
 	// make sure that the internal circle radius is smaller than the external circle radius
 
 	if (radius1 < radius2) {
-		ci.setRadius(radius1);
-		ce.setRadius(radius2);
+		ci.setSize(radius1);
+		ce.setSize(radius2);
 	}
 	else {
-		ci.setRadius(radius2);
-		ce.setRadius(radius1);
+		ci.setSize(radius2);
+		ce.setSize(radius1);
 	}
 }
 
