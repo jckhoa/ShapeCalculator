@@ -2,8 +2,6 @@
 
 #include "Shape.h"
 
-
-
 // The abstract class Shape3D is for implementing the functions to compute geometrical properties of 3D shapes
 
 class Shape3D : public Shape {

@@ -1,12 +1,13 @@
 #pragma once
 
-#include "Shape2D.h"
+#include "TriangleShape.h"
 
 // The Triangle class describes a triangular shape with its 3 side lengths.
 
-class Triangle: public Shape {
+class Triangle: public TriangleShape {
 
 public:
+
 	// Construct a triangle with all the side lengths set to zeros.
 	Triangle();
 
@@ -47,5 +48,7 @@ public:
 	bool isValid();
 
 private:
+
 	double a, b, c; // three sides of the triangle
+
 };

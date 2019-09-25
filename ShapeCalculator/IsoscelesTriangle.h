@@ -1,11 +1,11 @@
 #pragma once
 
 
-#include "Shape2D.h"
+#include "TriangleShape.h"
 
 // The IsoscelesTriangle class describes an isosceles triangle with its side and base lengths.
 
-class IsoscelesTriangle : public Shape {
+class IsoscelesTriangle : public TriangleShape {
 
 public:
 	// Construct an isosceles triangle with side and base set to zero.

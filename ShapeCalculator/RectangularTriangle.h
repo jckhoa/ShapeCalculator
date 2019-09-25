@@ -1,11 +1,13 @@
 #pragma once
 
-#include "Shape2D.h"
+#include "TriangleShape.h"
 
 // The RectangleTriangle class describes a rectangle triangle with its side lengths.
 
-class RectangularTriangle : public Shape {
+class RectangularTriangle : public TriangleShape {
+
 public:
+	
 	// Construct a rectangular triangle with side lengths set to zeros.
 	RectangularTriangle();
 
@@ -41,5 +43,7 @@ public:
 	bool isValid();
 
 private:
+
 	double s1, s2; // side lengths of the rectangular triangle
+
 };

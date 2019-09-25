@@ -3,6 +3,7 @@
 #include "Shape.h"
 
 // The abstract class Shape2D is for implementing functions to compute geometrical properties of 2D shapes.
+
 class Shape2D : public Shape {
 
 public:
