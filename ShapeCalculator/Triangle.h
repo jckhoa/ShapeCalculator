@@ -55,15 +55,15 @@ public:
 		return (a + b > c) && (a + c > b) && (b + c > a);
 	}
 
-	// Return the name of the shape
-	virtual std::string getShapeName() {
-		return "Triangle";
+	// Return the shape type of the object
+	ShapeType getShapeType() {
+		return ShapeType::Triangle;
 	};
 
-	static std::string getClassName() {
-		return "Triangle";
+	// return the shape type of the class
+	static ShapeType getClassShapeType() {
+		return ShapeType::Triangle;
 	}
-
 private:
 	double a, b, c; // three sides of the triangle
 };

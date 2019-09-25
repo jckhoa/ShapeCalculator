@@ -49,13 +49,14 @@ public:
 		return s1 > 0 && s2 > 0;
 	}
 
-	// Return the name of the shape
-	virtual std::string getShapeName() {
-		return "RectangularTriangle";
+	// Return the shape type of the object
+	ShapeType getShapeType() {
+		return ShapeType::RectangularTriangle;
 	};
 
-	static std::string getClassName() {
-		return "RectangularTriangle";
+	// return the shape type of the class
+	static ShapeType getClassShapeType() {
+		return ShapeType::RectangularTriangle;
 	}
 private:
 	double s1, s2;

@@ -8,46 +8,39 @@
 class Circle : public Shape2D {
 
 public:
+
 	// Construct a circle with a radius of zero.
-	Circle() : radius(0.) {}
+	Circle();
 
 	// Construct a circle from the radius value.
-	Circle(double radius) : radius(radius) {}
+	Circle(double radius);
 
 	// Set the radius of the circle
-	void setRadius(double radius) {
-		this->radius = radius;
-	}
+	void setRadius(double radius);
 
-	// Get the radius of the circle
-	double getRadius() {
-		return radius;
-	}
+	// Return the radius of the circle
+	double getRadius();
 
+	// Return the shape type of the class
+	static ShapeType getClassShapeType();
 
-	/////// Overriding functions ///////////
+	/////// Overriding functions from base classes ///////////
 
-	double getPerimeter() {
-		return radius * M_PI * 2;
-	}
+	// Return the shape type of the object
+	ShapeType getShapeType();
 
-	double getArea() {
-		return radius * radius * M_PI;
-	}
+	// Compute and return the perimeter of the circle
+	double getPerimeter();
 
-	bool isValid() {
-		return radius > 0;
-	}
+	// Compute and return the area of the circle
+	double getArea();
 
-	// Return the name of the shape
-	virtual std::string getShapeName() {
-		return "Circle";
-	};
+	// Return true if the circle is valid (the radius is non-negative), false otherwise.
+	bool isValid();
 
-	static std::string getClassName() {
-		return "Circle";
-	}
 private:
 
-	double radius; // radius of the circle
+	// Radius of the circle
+	double radius;
+
 };

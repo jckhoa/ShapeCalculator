@@ -8,60 +8,37 @@ class Donut : public Shape {
 
 public:
 	// Construct a donut with the internal and external radii set to zeros.
-	Donut() : ci(0.), ce(0.) {}
+	Donut();
 
-	// Construct a donut from the internal and external radii.
-	// The order of the radius parameters is not important.
-	Donut(double radius1, double radius2) {
-		setSize(radius1, radius2);
-	}
+	// Construct a donut from the internal and external radii. Their order is not important.
+	Donut(double radius1, double radius2);
 
-	// Set the internal and external radii.
-	// The order of the radius parameters is not important.
-	void setSize(double radius1, double radius2) {
-		if (radius1 > radius2) {
-			ci.setRadius(radius2);
-			ce.setRadius(radius1);
-		}
-		else {
-			ci.setRadius(radius1);
-			ce.setRadius(radius2);
-		}
-	}
+	// Set the internal and external radii. Their order is not important.
+	void setSize(double radius1, double radius2);
 
-	// Get the internal radius of the donut.
-	double getInternalRadius() {
-		return ci.getRadius();
-	}
+	// Return the internal radius of the donut.
+	double getInternalRadius();
 
-	// Get the external radius of the donut.
-	double getExternalRadius() {
-		return ce.getRadius();
-	}
+	// Return the external radius of the donut.
+	double getExternalRadius();
 
-	/////// Overriding functions ///////////
+	// Return the shape type of the class
+	static ShapeType getClassShapeType();
 
-	double getPerimeter() {
-		return ci.getPerimeter() + ce.getPerimeter();
-	}
+	/////// Overriding functions from base classes ///////////
 
-	double getArea() {
-		double area = ci.getArea() - ce.getArea();
-		return (area < 0) ? -area : area;
-	}
+	// Return the shape type of the object
+	ShapeType getShapeType();
 
-	bool isValid() {
-		return ci.isValid() && ce.isValid() && ci.getRadius() != ce.getRadius();
-	}
+	// Compute and return the perimeter of the donut
+	double getPerimeter();
 
-	// Return the name of the shape
-	virtual std::string getShapeName() {
-		return "Donut";
-	};
+	// Compute and return the area of the donut
+	double getArea();
 
-	static std::string getClassName() {
-		return "Donut";
-	}
+	// Return true if the donut is valid (i.e. the internal and external circle are valid and their outlines do not overlap), false otherwise
+	bool isValid();
+
 private:
 	Circle ci; // internal circle
 	Circle ce; // external circle

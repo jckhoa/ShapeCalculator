@@ -6,10 +6,6 @@
 class Shape2D : public Shape {
 
 public:
-	// Return the name of the shape
-	virtual std::string getShapeName() {
-		return "Shape2D";
-	};
 
 	// Compute and return the perimeter of the 2D shape
 	virtual double getPerimeter() = 0;

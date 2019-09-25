@@ -10,11 +10,6 @@ class Shape3D : public Shape {
 
 public:
 
-	// Return the name of the shape
-	virtual std::string getShapeName() {
-		return "Shape3D";
-	};
-
 	// Compute and return the volume of the 3D shape.
 	virtual double getVolume() = 0;
 

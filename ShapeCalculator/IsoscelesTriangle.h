@@ -9,56 +9,40 @@ class IsoscelesTriangle : public Shape {
 
 public:
 	// Construct an isosceles triangle with side and base set to zero.
-	IsoscelesTriangle() : side(0.), base(0.) {
-
-	}
+	IsoscelesTriangle();
 
 	// Construct an isosceles triangle from side and base lengths.
-	IsoscelesTriangle(double side, double base) : side(side), base(base) {
+	IsoscelesTriangle(double side, double base);
 
-	}
+	// Set the side and base lengths of the isosceles triangle
+	void setSize(double side, double base);
 
-	// set the side and base lengths of the isosceles triangle
-	void setSize(double side, double base) {
-		this->side = side;
-		this->base = base;
-	}
+	// Return the side length of the isosceles triangle
+	double getSide();
 
-	// get the side length of the isosceles triangle
-	double getSide() {
-		return side;
-	}
+	// Return the base length of the isosceles triangle
+	double getBase();
 
-	// get the base length of the isosceles triangle
-	double getBase() {
-		return base;
-	}
+	// Return the shape type of the class
+	static ShapeType getClassShapeType();
 
 	/////// Overriding functions ///////////
+	
+	// Return the shape type of the object
+	ShapeType getShapeType();
 
-	double getPerimeter() {
-		return side * 2 + base;
-	}
+	// Compute and return the perimeter of the isosceles triangle
+	double getPerimeter();
 
-	double getArea() {
-		// compute height from Pythagore theorem
-		double halfBase = base / 2;
-		double height = sqrt(side * side - halfBase * halfBase);
-		return halfBase * height;
-	}
+	// Compute and return the area of the isosceles triangle
+	double getArea();
 
-	bool isValid() {
-		return (2 * side > base) && side > 0 && base > 0;
-	}
+	// Return true if the isoseles triangle is valid, i.e. valid condition for base and side lengths, false otherwise.
+	bool isValid();
 
-	// Return the name of the shape
-	virtual std::string getShapeName() {
-		return "IsoscelesTriangle";
-	};
-
-	static std::string getClassName() {
-		return "IsoscelesTriangle";
-	}
 private:
-	double side, base;
+
+	double side; // side length of the isosceles triangle
+	
+	double base; // base length of the isoceles triangle
 };

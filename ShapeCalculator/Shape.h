@@ -3,7 +3,7 @@
 #define _USE_MATH_DEFINES
 #include <math.h>
 #include <string>
-
+#include "ShapeType.h"
 
 // The abstract class Shape for defining all 2D and 3D shapes
 
@@ -11,28 +11,19 @@ class Shape {
 public:
 
 	// Return the name of the shape
-	virtual std::string getShapeName() { 
-		return "Shape"; 
-	};
+	virtual ShapeType getShapeType() = 0;
 
-	// Convert to the final derived classes (casting from Base to Derived)
+	// Return the pointer to the casted type.
+	// The valid pointer is returned if the casted type is derived class, else a nullptr is returned
+	// Note: The purpose of this function is to avoid using dynamic_cast (performance reason) in casting from base to derived class 
 	template <class T>
-	operator T*() {
-		// Type checking by name
-		if (getShapeName().compare(T::getClassName()) == 0) {
+	T* getPointer() {
+		// Check if the object shape type is the same as the class shape type
+		if (getShapeType() == T::getClassShapeType()) {
 			return static_cast<T*>(this);
 		}
 		else {
 			return nullptr;
-		}
-	}
-
-	// Convert to the final derived classes  (casting from Base to Derived)
-	template <class T>
-	operator T&() {
-		// Type checking by name
-		if (getShapeName().compare(T::getClassName()) == 0) {
-			return static_cast<T&>(*this);
 		}
 	}
 

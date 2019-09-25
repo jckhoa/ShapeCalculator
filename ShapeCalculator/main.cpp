@@ -18,8 +18,8 @@ int main(void) {
 	std::cout << "Circle is valid (through base)? " << ((Shape*)&c)->isValid() << std::endl;
 	std::cout << "Circle perimeter: " << c.getPerimeter() << std::endl;
 	std::cout << "Circle area: " << c.getArea() << std::endl;
-	std::cout << "Shape name: " << c.getShapeName() << std::endl;
-	std::cout << "Shape name through base: " << ((Shape*)&c)->getShapeName() << std::endl;
+	std::cout << "Shape type: " << (c.getShapeType() == ShapeType::Circle) << std::endl;
+	std::cout << "Shape name through base: " << (((Shape*)&c)->getShapeType() == ShapeType::Circle) << std::endl;
 	
 	std::cout << std::endl;
 	c.setRadius(0.);
@@ -42,20 +42,10 @@ int main(void) {
 	Shape* s = &c;
 	std::cout << "Circle address: " << &c << std::endl;
 	std::cout << "Shape address: " << s << std::endl;;
-	Circle* cc = *s;
+	Circle* cc = s->getPointer<Circle>();
 	std::cout << "Shape to Circle Downcast address: " << cc << std::endl;
-	Donut* dd = *s;
+	Donut* dd = s->getPointer<Donut>();
 	std::cout << "Shape to Donut Downcast address: " << dd << std::endl;
-
-
-	//Test conversion by reference
-	std::cout << std::endl << "Test conversion by reference" << std::endl;
-	Shape& ss = c;
-	Circle& ccc = ss;
-	
-	std::cout << "Circle radius: " << ccc.getRadius() << std::endl;
-	Donut& ddd = ss;
-	std::cout << "Donut area: " << ddd.getArea() << std::endl;
 
 	return 0;
 }

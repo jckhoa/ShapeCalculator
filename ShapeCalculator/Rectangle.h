@@ -46,13 +46,15 @@ public:
 		return width > 0 && height > 0;
 	}
 
-	// Return the name of the shape
-	virtual std::string getShapeName() {
-		return "Rectangle";
+
+	// Return the shape type of the object
+	ShapeType getShapeType() {
+		return ShapeType::Rectangle;
 	};
 
-	static std::string getClassName() {
-		return "Rectangle";
+	// return the shape type of the class
+	static ShapeType getClassShapeType() {
+		return ShapeType::Rectangle;
 	}
 private:
 	double width, height;
