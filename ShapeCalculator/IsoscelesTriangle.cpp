@@ -8,6 +8,8 @@ IsoscelesTriangle::IsoscelesTriangle(double side, double base) : side(side), bas
 
 }
 
+IsoscelesTriangle::~IsoscelesTriangle() {}
+
 void IsoscelesTriangle::setSize(double side, double base) {
 	this->side = side;
 	this->base = base;

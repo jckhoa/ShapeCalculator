@@ -14,6 +14,9 @@ public:
 	// Construct an isosceles triangle from side and base lengths.
 	IsoscelesTriangle(double side, double base);
 
+	// Destructor
+	virtual ~IsoscelesTriangle();
+
 	// Set the side and base lengths of the isosceles triangle
 	void setSize(double side, double base);
 

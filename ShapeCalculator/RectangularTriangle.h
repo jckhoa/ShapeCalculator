@@ -14,6 +14,9 @@ public:
 	// Construct a rectangular triangle from its side lengths
 	RectangularTriangle(double side1, double side2);
 
+	// Desctructor
+	virtual ~RectangularTriangle();
+
 	// Set the side lengths of the rectangular triangle.
 	void setSize(double side1, double side2);
 

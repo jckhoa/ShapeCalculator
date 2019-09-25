@@ -13,6 +13,9 @@ public:
 	// Construct a square from side length value.
 	Square(double sideLength);
 
+	// Destructor
+	virtual ~Square();
+
 	// Set side length of the square
 	void setSideLength(double sideLength);
 
@@ -39,5 +42,7 @@ public:
 	bool isValid();
 
 private:
-	double side;
+
+	double side; // side length of the square
+
 };

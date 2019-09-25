@@ -13,6 +13,9 @@ public:
 	// Construct a rectangle from width and height values
 	Rectangle(double width, double height);
 
+	// Desctructor
+	virtual ~Rectangle();
+
 	// Set the width and height of the rectangle
 	void setSize(double width, double height);
 

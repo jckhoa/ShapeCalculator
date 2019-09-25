@@ -8,6 +8,8 @@ Triangle::Triangle(double side1, double side2, double side3) : a(side1), b(side2
 
 }
 
+Triangle::~Triangle() {}
+
 void Triangle::setSize(double side1, double side2, double side3) {
 	a = side1;
 	b = side2;

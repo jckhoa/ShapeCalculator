@@ -14,6 +14,9 @@ public:
 	// Construct a triangle with the length of 3 sides
 	Triangle(double side1, double side2, double side3);
 
+	// Destructor
+	virtual ~Triangle();
+
 	// Set the lengths of 3 sides of the triangle.
 	void setSize(double side1, double side2, double side3);
 

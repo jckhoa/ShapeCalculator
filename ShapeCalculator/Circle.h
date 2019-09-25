@@ -15,6 +15,9 @@ public:
 	// Construct a circle from the radius value.
 	Circle(double radius);
 
+	// Desctructor
+	virtual ~Circle();
+
 	// Set the radius of the circle
 	void setRadius(double radius);
 

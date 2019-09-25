@@ -6,6 +6,8 @@ Donut::Donut(double radius1, double radius2) {
 	setSize(radius1, radius2);
 }
 
+Donut::~Donut() {}
+
 void Donut::setSize(double radius1, double radius2) {
 	// assign the radius values to internal and external circles
 	// make sure that the internal circle radius is smaller than the external circle radius

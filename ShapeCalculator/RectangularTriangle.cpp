@@ -8,6 +8,8 @@ RectangularTriangle::RectangularTriangle(double side1, double side2) : s1(side1)
 
 }
 
+RectangularTriangle::~RectangularTriangle() {}
+
 void RectangularTriangle::setSize(double side1, double side2) {
 	this->s1 = side1;
 	this->s2 = side2;

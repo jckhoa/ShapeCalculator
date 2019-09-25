@@ -6,6 +6,8 @@ Rectangle::Rectangle(double width, double height) : width(width), height(height)
 
 }
 
+Rectangle::~Rectangle() {}
+
 void Rectangle::setSize(double width, double height) {
 	this->width = width;
 	this->height = height;

@@ -13,6 +13,9 @@ public:
 	// Construct a donut from the internal and external radii. Their order is not important.
 	Donut(double radius1, double radius2);
 
+	// Desctructor
+	virtual ~Donut();
+
 	// Set the internal and external radii. Their order is not important.
 	void setSize(double radius1, double radius2);
 

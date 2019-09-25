@@ -8,6 +8,8 @@ Square::Square(double sideLength) : side(sideLength) {
 
 }
 
+Square::~Square() {}
+
 void Square::setSideLength(double sideLength) {
 	side = sideLength;
 }
