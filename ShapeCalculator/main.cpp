@@ -122,7 +122,7 @@ int main(void) {
 	// Array of mixed shapes: Example 2
 	std::cout << "------- Example on array of mixed shapes: example 2 ------" << std::endl;
 	{
-		std::vector<Shape*> shapes;
+		std::vector<Shape2D*> shapes;
 		shapes.push_back(new Triangle(3., 4., 5.));
 		shapes.push_back(new Rectangle(0., 7.));
 		shapes.push_back(new Donut(-3, 4));
@@ -133,5 +133,7 @@ int main(void) {
 
 		for (auto& shape : shapes) delete shape;
 	}
+
 	return 0;
+
 }
