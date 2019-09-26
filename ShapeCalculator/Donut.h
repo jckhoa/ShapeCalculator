@@ -4,7 +4,7 @@
 
 // The Donut (or Couronne) class describes a donut shape with two concentric circles.
 
-class Donut : public Shape {
+class Donut : public Shape2D {
 
 public:
 	// Construct a donut with the internal and external radii set to zeros.
