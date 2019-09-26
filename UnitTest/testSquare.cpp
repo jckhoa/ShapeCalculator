@@ -14,27 +14,27 @@ namespace UnitTest
 		TEST_METHOD(TestSquare_Constructor0)
 		{
 			Square rec;
-			Assert::AreEqual(0., rec.getSideLength());
+			Assert::AreEqual(0., rec.getSide());
 		}
 
 		//Test constructor with 1 argument
 		TEST_METHOD(TestSquare_Constructor1)
 		{
 			Square rec(2.);
-			Assert::AreEqual(2., rec.getSideLength());
+			Assert::AreEqual(2., rec.getSide());
 		}
 
 		TEST_METHOD(TestSquare_SetSize)
 		{
 			Square rec;
 			rec.setSize(2.);
-			Assert::AreEqual(2., rec.getSideLength());
+			Assert::AreEqual(2., rec.getSide());
 		}
 
-		TEST_METHOD(TestSquare_GetSideLength)
+		TEST_METHOD(TestSquare_getSide)
 		{
 			Square rec(2.);
-			Assert::AreEqual(2., rec.getSideLength());
+			Assert::AreEqual(2., rec.getSide());
 		}
 
 		TEST_METHOD(TestSquare_GetClassShapeType)
