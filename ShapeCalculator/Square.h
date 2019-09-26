@@ -20,7 +20,7 @@ public:
 	void setSize(double sideLength);
 
 	// Get side length of the square
-	double getSideLength() const;
+	double getSide() const;
 
 	// return the shape type of the class
 	static ShapeType getClassShapeType();

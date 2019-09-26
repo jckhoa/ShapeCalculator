@@ -15,7 +15,7 @@ void Square::setSize(double sideLength) {
 	side = sideLength;
 }
 
-double Square::getSideLength() const {
+double Square::getSide() const {
 	return side;
 }
 
