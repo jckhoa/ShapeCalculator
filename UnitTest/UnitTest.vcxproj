@@ -78,14 +78,14 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\Raymond\Documents\Visual Studio 2015\Projects\ShapeCalculator\ShapeCalculator;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\ShapeCalculator;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\Raymond\Documents\Visual Studio 2015\Projects\ShapeCalculator\ShapeCalculator;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\ShapeCalculator;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -112,7 +112,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>C:\Users\Raymond\Documents\Visual Studio 2015\Projects\ShapeCalculator\ShapeCalculator\x64\Debug;$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\ShapeCalculator\x64\Debug;$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>Circle.obj;Donut.obj;IsoscelesTriangle.obj;Rectangle.obj;RectangularTriangle.obj;Square.obj;Triangle.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -149,7 +149,7 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Users\Raymond\Documents\Visual Studio 2015\Projects\ShapeCalculator\ShapeCalculator\x64\Release;$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\ShapeCalculator\x64\Release;$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>Circle.obj;Donut.obj;IsoscelesTriangle.obj;Rectangle.obj;RectangularTriangle.obj;Square.obj;Triangle.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
