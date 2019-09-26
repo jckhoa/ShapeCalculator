@@ -1,11 +1,11 @@
 #pragma once
 
-#include "Shape2D.h"
+#include "CircleShape.h"
 
 
 // The Circle (or Disque) class describes a circular shape with a radius.
 
-class Circle : public Shape2D {
+class Circle : public CircleShape {
 
 public:
 
