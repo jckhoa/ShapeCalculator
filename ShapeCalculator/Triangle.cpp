@@ -1,4 +1,5 @@
 #include "Triangle.h"
+#include <sstream>
 
 Triangle::Triangle() : a(0.), b(0.), c(0.) {
 
@@ -52,4 +53,10 @@ double Triangle::getArea() {
 
 bool Triangle::isValid() {
 	return (a + b > c) && (a + c > b) && (b + c > a);
+}
+
+std::string Triangle::toString() {
+	std::stringstream ss;
+	ss << "Triangle(side1=" << a << ",side2=" << b << ",side3=" << c << ")";
+	return ss.str();
 }

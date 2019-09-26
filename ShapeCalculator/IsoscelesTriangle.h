@@ -45,6 +45,9 @@ public:
 	// Return true if the isoseles triangle is valid, i.e. valid condition for base and side lengths, false otherwise.
 	bool isValid();
 
+	// Return the string containing the shape info
+	std::string toString();
+
 private:
 
 	double side; // side length of the isosceles triangle

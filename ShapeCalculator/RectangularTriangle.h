@@ -45,6 +45,9 @@ public:
 	// Return true if the rectangular triangle is valid (both side lengths are positive), false otherwise.
 	bool isValid();
 
+	// Return the string containing the shape info
+	std::string toString();
+
 private:
 
 	double s1, s2; // side lengths of the rectangular triangle

@@ -10,21 +10,23 @@ namespace UnitTest
 	{
 	public:
 
-		TEST_METHOD(TestConstructor0)
+		//Test empty constructor
+		TEST_METHOD(TestRectangle_Constructor0)
 		{
 			Rectangle rec;
 			Assert::AreEqual(0., rec.getWidth());
 			Assert::AreEqual(0., rec.getHeight());
 		}
 
-		TEST_METHOD(TestConstructor1)
+		//Test constructor with 2 arguments
+		TEST_METHOD(TestRectangle_Constructor2)
 		{
 			Rectangle rec(2., 3.);
 			Assert::AreEqual(2., rec.getWidth());
 			Assert::AreEqual(3., rec.getHeight());
 		}
 
-		TEST_METHOD(TestSetSize)
+		TEST_METHOD(TestRectangle_SetSize)
 		{
 			Rectangle rec;
 			rec.setSize(2., 3.);
@@ -32,19 +34,19 @@ namespace UnitTest
 			Assert::AreEqual(3., rec.getHeight());
 		}
 
-		TEST_METHOD(TestGetWidth)
+		TEST_METHOD(TestRectangle_GetWidth)
 		{
 			Rectangle rec(2., 3.);
 			Assert::AreEqual(2., rec.getWidth());
 		}
 
-		TEST_METHOD(TestGetHeight)
+		TEST_METHOD(TestRectangle_GetHeight)
 		{
 			Rectangle rec(2., 3.);
 			Assert::AreEqual(3., rec.getHeight());
 		}
 
-		TEST_METHOD(TestIsSquare)
+		TEST_METHOD(TestRectangle_IsSquare)
 		{
 			// expect false when the width is not equal to height
 			Rectangle rec1(2., 3.);
@@ -55,18 +57,18 @@ namespace UnitTest
 			Assert::IsTrue(rec2.isSquare());
 		}
 
-		TEST_METHOD(TestGetClassShapeType)
+		TEST_METHOD(TestRectangle_GetClassShapeType)
 		{
 			Assert::IsTrue(ShapeType::Rectangle == Rectangle::getClassShapeType());
 		}
 
-		TEST_METHOD(TestGetShapeType)
+		TEST_METHOD(TestRectangle_GetShapeType)
 		{
 			Rectangle rec;
 			Assert::IsTrue(ShapeType::Rectangle == rec.getShapeType());
 		}
 
-		TEST_METHOD(TestGetPerimeter)
+		TEST_METHOD(TestRectangle_GetPerimeter)
 		{
 			// Expect the perimeter to be zero for zero width or zero height
 			Rectangle z0;
@@ -91,7 +93,7 @@ namespace UnitTest
 
 		}
 
-		TEST_METHOD(TestGetArea)
+		TEST_METHOD(TestRectangle_GetArea)
 		{
 			// Expect the area to be zero for zero width or zero height
 			Rectangle z0;
@@ -116,7 +118,7 @@ namespace UnitTest
 
 		}
 
-		TEST_METHOD(TestIsValid)
+		TEST_METHOD(TestRectangle_IsValid)
 		{
 			// Expect false for zero width or zero height
 			Rectangle z0;
@@ -138,6 +140,14 @@ namespace UnitTest
 			Rectangle rec(2., 3.);
 			Assert::IsTrue(rec.isValid());
 
+		}
+
+		TEST_METHOD(TestRectangle_ToString) {
+			double width = 5;
+			double height = 6;
+			Rectangle rec(width, height);
+			std::string expected("Rectangle(width=5,height=6)");
+			Assert::AreEqual(expected, rec.toString());
 		}
 	};
 }

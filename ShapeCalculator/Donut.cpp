@@ -1,4 +1,5 @@
 #include "Donut.h"
+#include <sstream>
 
 Donut::Donut() : ci(0.), ce(0.) {}
 
@@ -51,4 +52,10 @@ double Donut::getArea() {
 
 bool Donut::isValid() {
 	return ci.isValid() && ce.isValid() && ci.getRadius() != ce.getRadius();
+}
+
+std::string Donut::toString() {
+	std::stringstream ss;
+	ss << "Donut(intern_radius=" << ci.getRadius() << ",extern_radius=" << ce.getRadius() << ")";
+	return ss.str();
 }

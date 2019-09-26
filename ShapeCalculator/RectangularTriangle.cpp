@@ -1,4 +1,5 @@
 #include "RectangularTriangle.h"
+#include <sstream>
 
 RectangularTriangle::RectangularTriangle() : s1(0.), s2(0.) {
 
@@ -45,4 +46,10 @@ double RectangularTriangle::getArea() {
 
 bool RectangularTriangle::isValid() {
 	return s1 > 0 && s2 > 0;
+}
+
+std::string RectangularTriangle::toString() {
+	std::stringstream ss;
+	ss << "RectangularTriangle(side1=" << s1 << ",side2=" << s2 << ")";
+	return ss.str();
 }

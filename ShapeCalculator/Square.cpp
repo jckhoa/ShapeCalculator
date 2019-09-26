@@ -1,4 +1,5 @@
 #include "Square.h"
+#include <sstream>
 
 Square::Square() : side(0.) {
 
@@ -38,4 +39,10 @@ double Square::getArea() {
 
 bool Square::isValid() {
 	return side > 0;
+}
+
+std::string Square::toString() {
+	std::stringstream ss;
+	ss << "Square(side=" << side << ")";
+	return ss.str();
 }

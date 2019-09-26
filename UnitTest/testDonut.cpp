@@ -10,7 +10,8 @@ namespace UnitTest
 	{
 	public:
 
-		TEST_METHOD(TestConstructor0)
+		//Test empty constructor
+		TEST_METHOD(TestDonut_Constructor0)
 		{
 			
 			Donut d;
@@ -18,7 +19,8 @@ namespace UnitTest
 			Assert::AreEqual(0., d.getExternalRadius());
 		}
 
-		TEST_METHOD(TestConstructor1)
+		//Test constructor with 2 arguments
+		TEST_METHOD(TestDonut_Constructor2)
 		{
 			Donut d1(2., 3.);
 			Assert::AreEqual(2., d1.getInternalRadius());
@@ -31,7 +33,7 @@ namespace UnitTest
 
 		}
 
-		TEST_METHOD(TestSetSize)
+		TEST_METHOD(TestDonut_SetSize)
 		{
 			Donut d;
 			d.setSize(2., 3.);
@@ -45,7 +47,7 @@ namespace UnitTest
 
 		}
 
-		TEST_METHOD(TestGetInternalRadius)
+		TEST_METHOD(TestDonut_GetInternalRadius)
 		{
 			Donut d1(4., 5.);
 			Assert::AreEqual(4., d1.getInternalRadius());
@@ -54,7 +56,7 @@ namespace UnitTest
 			Assert::AreEqual(4., d2.getInternalRadius());
 		}
 
-		TEST_METHOD(TestGetExternalRadius)
+		TEST_METHOD(TestDonut_GetExternalRadius)
 		{
 			Donut d1(4., 5.);
 			Assert::AreEqual(5., d1.getExternalRadius());
@@ -63,18 +65,18 @@ namespace UnitTest
 			Assert::AreEqual(5., d2.getExternalRadius());
 		}
 
-		TEST_METHOD(TestGetClassShapeType)
+		TEST_METHOD(TestDonut_GetClassShapeType)
 		{
 			Assert::IsTrue(ShapeType::Donut == Donut::getClassShapeType());
 		}
 
-		TEST_METHOD(TestGetShapeType)
+		TEST_METHOD(TestDonut_GetShapeType)
 		{
 			Donut c;
 			Assert::IsTrue(ShapeType::Donut == c.getShapeType());
 		}
 
-		TEST_METHOD(TestGetPerimeter)
+		TEST_METHOD(TestDonut_GetPerimeter)
 		{
 			// Expect the perimeter to be zero if one of the radii is zero.
 			Donut z1;
@@ -98,18 +100,15 @@ namespace UnitTest
 			Donut e1(3., 3.);
 			Assert::AreEqual(0., e1.getPerimeter());
 
-			// Expect the perimeter to be 2 * pi * (ri + re) 
-			// if the internal radius ri and external radus re are positive and not equal to each other.
+			// Expect the perimeter to be the sum of the internal and external perimeters 
+			// if the internal radius ri and external radius re are positive and not equal to each other.
 			double ri = 3.5, re = 5.5;
-			
 			Donut d(ri, re);
-			double expected = (ri + re) * M_PI * 2;
-			double relative_error = fabs(d.getPerimeter() - expected) / expected * 100;
-			double tolerance = 1.e-5;
-			Assert::IsTrue(relative_error < tolerance);
+			double expected = ri * M_PI * 2 + re * M_PI * 2;
+			Assert::AreEqual(expected, d.getPerimeter(), std::numeric_limits<double>::epsilon());
 		}
 
-		TEST_METHOD(TestGetArea)
+		TEST_METHOD(TestDonut_GetArea)
 		{
 			// Expect the area to be zero if one of the radii is zero
 			Donut z1;
@@ -133,14 +132,16 @@ namespace UnitTest
 			Donut e1(3., 3.);
 			Assert::AreEqual(0., e1.getArea());
 
-			// Expect the area to be (re*re - ri*ri) * pi if the internal radius ri and external radius re 
+			// Expect the area to be the difference between the external and internal areas 
+			// if the internal radius ri and external radius re 
 			// are positive and not equal to each other.
 			double ri = 3.5, re = 5.5;
+			double expected = re * re * M_PI - ri * ri * M_PI;
 			Donut d(ri, re);
-			Assert::AreEqual((re*re - ri*ri) * M_PI, d.getArea(), 1.e-5);
+			Assert::AreEqual(expected, d.getArea());
 		}
 
-		TEST_METHOD(TestIsValid)
+		TEST_METHOD(TestDonut_IsValid)
 		{
 			// Expect false for if one of the radii is zero
 			Donut z1;
@@ -171,5 +172,12 @@ namespace UnitTest
 		}
 
 
+		TEST_METHOD(TestDonut_ToString) {
+			double radius1 = 5.5;
+			double radius2 = 3.5;
+			Donut d(radius1, radius2);
+			std::string expected("Donut(intern_radius=3.5,extern_radius=5.5)");
+			Assert::AreEqual(expected, d.toString());
+		}
 	};
 }

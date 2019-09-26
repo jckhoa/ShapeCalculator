@@ -50,6 +50,9 @@ public:
 	// (1) a + b > c (2) a + c > b (3) b + c > a
 	bool isValid();
 
+	// Return the string containing the shape info
+	std::string toString();
+
 private:
 
 	double a, b, c; // three sides of the triangle

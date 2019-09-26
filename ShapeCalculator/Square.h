@@ -41,6 +41,9 @@ public:
 	// Return true if the square is valid (side length is positive), false otherwise.
 	bool isValid();
 
+	// Return the string containing the shape info
+	std::string toString();
+
 private:
 
 	double side; // side length of the square

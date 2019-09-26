@@ -10,43 +10,45 @@ namespace UnitTest
 	{
 	public:
 		
-		TEST_METHOD(TestConstructor0)
+		//Test empty constructor
+		TEST_METHOD(TestCircle_Constructor0)
 		{
 			Circle c;
 			Assert::AreEqual(0., c.getRadius());
 		}
 
-		TEST_METHOD(TestConstructor1)
+		//Test constructor with 1 argument
+		TEST_METHOD(TestCircle_Constructor1)
 		{
 			Circle c(2.);
 			Assert::AreEqual(2., c.getRadius());
 		}
 
-		TEST_METHOD(TestSetSize)
+		TEST_METHOD(TestCircle_SetSize)
 		{
 			Circle c(2.);
 			c.setSize(2.5);
 			Assert::AreEqual(2.5, c.getRadius());
 		}
 
-		TEST_METHOD(TestGetRadius)
+		TEST_METHOD(TestCircle_GetRadius)
 		{
 			Circle c(7.3234);
 			Assert::AreEqual(7.3234, c.getRadius());
 		}
 
-		TEST_METHOD(TestGetClassShapeType)
+		TEST_METHOD(TestCircle_GetClassShapeType)
 		{
 			Assert::IsTrue(ShapeType::Circle == Circle::getClassShapeType());
 		}
 
-		TEST_METHOD(TestGetShapeType)
+		TEST_METHOD(TestCircle_GetShapeType)
 		{
 			Circle c;
 			Assert::IsTrue(ShapeType::Circle == c.getShapeType());
 		}
 
-		TEST_METHOD(TestGetPerimeter)
+		TEST_METHOD(TestCircle_GetPerimeter)
 		{
 			// Expect the perimeter to be zero for zero radius
 			Circle z0;
@@ -65,7 +67,7 @@ namespace UnitTest
 
 		}
 
-		TEST_METHOD(TestGetArea)
+		TEST_METHOD(TestCircle_GetArea)
 		{
 			// Expect the area to be zero for zero radius
 			Circle z0;
@@ -84,7 +86,7 @@ namespace UnitTest
 
 		}
 
-		TEST_METHOD(TestIsValid)
+		TEST_METHOD(TestCircle_IsValid)
 		{
 			// Expect false for zero radius
 			Circle z0;
@@ -101,6 +103,13 @@ namespace UnitTest
 			Circle c2(r);
 			Assert::IsTrue(c2.isValid());
 
+		}
+
+		TEST_METHOD(TestCircle_ToString) {
+			double radius = 5.5;
+			Circle c(radius);
+			std::string expected("Circle(radius=5.5)");
+			Assert::AreEqual(expected, c.toString());
 		}
 	};
 }

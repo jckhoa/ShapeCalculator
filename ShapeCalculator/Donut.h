@@ -44,6 +44,9 @@ public:
 	// Return true if the donut is valid (i.e. the internal and external circle are valid and their outlines do not overlap), false otherwise
 	bool isValid();
 
+	// Return the string containing the shape info
+	std::string toString();
+
 private:
 	Circle ci; // internal circle
 	Circle ce; // external circle

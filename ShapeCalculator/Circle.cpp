@@ -1,4 +1,5 @@
 #include "Circle.h"
+#include <sstream>
 
 Circle::Circle() : radius(0.) {}
 
@@ -36,3 +37,8 @@ bool Circle::isValid() {
 	return radius > 0;
 }
 
+std::string Circle::toString() {
+	std::stringstream ss;
+	ss << "Circle(radius=" << radius << ")";
+	return ss.str();
+}

@@ -10,43 +10,45 @@ namespace UnitTest
 	{
 	public:
 
-		TEST_METHOD(TestConstructor0)
+		//Test empty constructor
+		TEST_METHOD(TestSquare_Constructor0)
 		{
 			Square rec;
 			Assert::AreEqual(0., rec.getSideLength());
 		}
 
-		TEST_METHOD(TestConstructor1)
+		//Test constructor with 1 argument
+		TEST_METHOD(TestSquare_Constructor1)
 		{
 			Square rec(2.);
 			Assert::AreEqual(2., rec.getSideLength());
 		}
 
-		TEST_METHOD(TestSetSize)
+		TEST_METHOD(TestSquare_SetSize)
 		{
 			Square rec;
 			rec.setSize(2.);
 			Assert::AreEqual(2., rec.getSideLength());
 		}
 
-		TEST_METHOD(TestGetSideLength)
+		TEST_METHOD(TestSquare_GetSideLength)
 		{
 			Square rec(2.);
 			Assert::AreEqual(2., rec.getSideLength());
 		}
 
-		TEST_METHOD(TestGetClassShapeType)
+		TEST_METHOD(TestSquare_GetClassShapeType)
 		{
 			Assert::IsTrue(ShapeType::Square == Square::getClassShapeType());
 		}
 
-		TEST_METHOD(TestGetShapeType)
+		TEST_METHOD(TestSquare_GetShapeType)
 		{
 			Square rec;
 			Assert::IsTrue(ShapeType::Square == rec.getShapeType());
 		}
 
-		TEST_METHOD(TestGetPerimeter)
+		TEST_METHOD(TestSquare_GetPerimeter)
 		{
 			// Expect the perimeter to be zero for zero side length.
 			Square z0;
@@ -65,7 +67,7 @@ namespace UnitTest
 
 		}
 
-		TEST_METHOD(TestGetArea)
+		TEST_METHOD(TestSquare_GetArea)
 		{
 			// Expect the area to be zero for zero side length.
 			Square z0;
@@ -84,7 +86,7 @@ namespace UnitTest
 
 		}
 
-		TEST_METHOD(TestIsValid)
+		TEST_METHOD(TestSquare_IsValid)
 		{
 			// Expect false for zero side length.
 			Square z0;
@@ -100,6 +102,13 @@ namespace UnitTest
 			Square rec(3.);
 			Assert::IsTrue(rec.isValid());
 
+		}
+
+		TEST_METHOD(TestSquare_ToString) {
+			double side = 5.5;
+			Square rec(side);
+			std::string expected("Square(side=5.5)");
+			Assert::AreEqual(expected, rec.toString());
 		}
 	};
 }

@@ -10,21 +10,23 @@ namespace UnitTest
 	{
 	public:
 
-		TEST_METHOD(TestConstructor0)
+		//Test empty constructor
+		TEST_METHOD(TestRectangularTriangle_Constructor0)
 		{
 			RectangularTriangle rec;
 			Assert::AreEqual(0., rec.getFirstSide());
 			Assert::AreEqual(0., rec.getSecondSide());
 		}
 
-		TEST_METHOD(TestConstructor1)
+		//Test constructor with 2 arguments
+		TEST_METHOD(TestRectangularTriangle_Constructor2)
 		{
 			RectangularTriangle rec(2., 3.);
 			Assert::AreEqual(2., rec.getFirstSide());
 			Assert::AreEqual(3., rec.getSecondSide());
 		}
 
-		TEST_METHOD(TestSetSize)
+		TEST_METHOD(TestRectangularTriangle_SetSize)
 		{
 			RectangularTriangle rec;
 			rec.setSize(2., 3.);
@@ -32,30 +34,30 @@ namespace UnitTest
 			Assert::AreEqual(3., rec.getSecondSide());
 		}
 
-		TEST_METHOD(TestGetFirstSide)
+		TEST_METHOD(TestRectangularTriangle_GetFirstSide)
 		{
 			RectangularTriangle rec(2., 3.);
 			Assert::AreEqual(2., rec.getFirstSide());
 		}
 
-		TEST_METHOD(TestGetSecondSide)
+		TEST_METHOD(TestRectangularTriangle_GetSecondSide)
 		{
 			RectangularTriangle rec(2., 3.);
 			Assert::AreEqual(3., rec.getSecondSide());
 		}
 
-		TEST_METHOD(TestGetClassShapeType)
+		TEST_METHOD(TestRectangularTriangle_GetClassShapeType)
 		{
 			Assert::IsTrue(ShapeType::RectangularTriangle == RectangularTriangle::getClassShapeType());
 		}
 
-		TEST_METHOD(TestGetShapeType)
+		TEST_METHOD(TestRectangularTriangle_GetShapeType)
 		{
 			RectangularTriangle rec;
 			Assert::IsTrue(ShapeType::RectangularTriangle == rec.getShapeType());
 		}
 
-		TEST_METHOD(TestGetPerimeter)
+		TEST_METHOD(TestRectangularTriangle_GetPerimeter)
 		{
 			// Expect the perimeter to be zero if one of the side lengths is zero.
 			RectangularTriangle z0;
@@ -80,7 +82,7 @@ namespace UnitTest
 
 		}
 
-		TEST_METHOD(TestGetArea)
+		TEST_METHOD(TestRectangularTriangle_GetArea)
 		{
 			// Expect the area to be zero if one of the side lengths is zero.
 			RectangularTriangle z0;
@@ -105,7 +107,7 @@ namespace UnitTest
 
 		}
 
-		TEST_METHOD(TestIsValid)
+		TEST_METHOD(TestRectangularTriangle_IsValid)
 		{
 			// Expect false if one of the side lengths is zero.
 			RectangularTriangle z0;
@@ -127,6 +129,14 @@ namespace UnitTest
 			RectangularTriangle rec(3., 4.);
 			Assert::IsTrue(rec.isValid());
 
+		}
+
+		TEST_METHOD(TestRectangularTriangle_ToString) {
+			double side1 = 5;
+			double side2 = 6;
+			RectangularTriangle tri(side1, side2);
+			std::string expected("RectangularTriangle(side1=5,side2=6)");
+			Assert::AreEqual(expected, tri.toString());
 		}
 	};
 }

@@ -1,4 +1,5 @@
 #include "Rectangle.h"
+#include <sstream>
 
 Rectangle::Rectangle() : width(0.), height(0.) {}
 
@@ -45,4 +46,10 @@ double Rectangle::getArea() {
 
 bool Rectangle::isValid() {
 	return width > 0 && height > 0;
+}
+
+std::string Rectangle::toString() {
+	std::stringstream ss;
+	ss << "Rectangle(width=" << width << ",height=" << height << ")";
+	return ss.str();
 }

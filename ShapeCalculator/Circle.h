@@ -43,6 +43,9 @@ public:
 	// Return true if the circle is valid (the radius is positive), false otherwise.
 	bool isValid();
 
+	// Return the string containing the shape info
+	std::string toString();
+
 private:
 
 	// Radius of the circle

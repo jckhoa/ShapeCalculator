@@ -47,6 +47,9 @@ public:
 	// Return true if the rectangle is valid (width and height are positive), false otherwise.
 	bool isValid();
 
+	// Return the string containing the shape info
+	std::string toString();
+
 private:
 
 	double width; // width of the rectangle

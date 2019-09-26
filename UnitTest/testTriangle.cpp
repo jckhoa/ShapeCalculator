@@ -10,7 +10,8 @@ namespace UnitTest
 	{
 	public:
 
-		TEST_METHOD(TestConstructor0)
+		//Test empty constructor
+		TEST_METHOD(TestTriangle_Constructor0)
 		{
 			Triangle tri;
 			Assert::AreEqual(0., tri.getFirstSide());
@@ -18,7 +19,8 @@ namespace UnitTest
 			Assert::AreEqual(0., tri.getThirdSide());
 		}
 
-		TEST_METHOD(TestConstructor1)
+		//Test constructor with 3 arguments
+		TEST_METHOD(TestTriangle_Constructor3)
 		{
 			Triangle tri(2., 3., 4.);
 			Assert::AreEqual(2., tri.getFirstSide());
@@ -26,7 +28,7 @@ namespace UnitTest
 			Assert::AreEqual(4., tri.getThirdSide());
 		}
 
-		TEST_METHOD(TestSetSize)
+		TEST_METHOD(TestTriangle_SetSize)
 		{
 			Triangle tri;
 			tri.setSize(2., 3., 4.);
@@ -35,36 +37,36 @@ namespace UnitTest
 			Assert::AreEqual(4., tri.getThirdSide());
 		}
 
-		TEST_METHOD(TestGetFirstSide)
+		TEST_METHOD(TestTriangle_GetFirstSide)
 		{
 			Triangle tri(2., 3., 4.);
 			Assert::AreEqual(2., tri.getFirstSide());
 		}
 
-		TEST_METHOD(TestGetSecondSide)
+		TEST_METHOD(TestTriangle_GetSecondSide)
 		{
 			Triangle tri(2., 3., 4.);
 			Assert::AreEqual(3., tri.getSecondSide());
 		}
 
-		TEST_METHOD(TestGetThirdSide)
+		TEST_METHOD(TestTriangle_GetThirdSide)
 		{
 			Triangle tri(2., 3., 4.);
 			Assert::AreEqual(4., tri.getThirdSide());
 		}
 
-		TEST_METHOD(TestGetClassShapeType)
+		TEST_METHOD(TestTriangle_GetClassShapeType)
 		{
 			Assert::IsTrue(ShapeType::Triangle == Triangle::getClassShapeType());
 		}
 
-		TEST_METHOD(TestGetShapeType)
+		TEST_METHOD(TestTriangle_GetShapeType)
 		{
 			Triangle tri;
 			Assert::IsTrue(ShapeType::Triangle == tri.getShapeType());
 		}
 
-		TEST_METHOD(TestGetPerimeter)
+		TEST_METHOD(TestTriangle_GetPerimeter)
 		{
 			// Expect the perimeter to be zero if one of the side lengths is zero.
 			Triangle z0;
@@ -105,7 +107,7 @@ namespace UnitTest
 
 		}
 
-		TEST_METHOD(TestGetArea)
+		TEST_METHOD(TestTriangle_GetArea)
 		{
 			// Expect the area to be zero if one of the side lengths is zero.
 			Triangle z0;
@@ -146,7 +148,7 @@ namespace UnitTest
 
 		}
 
-		TEST_METHOD(TestIsValid)
+		TEST_METHOD(TestTriangle_IsValid)
 		{
 			// Expect the area to be zero if one of the side lengths is zero.
 			Triangle z0;
@@ -184,6 +186,15 @@ namespace UnitTest
 			Triangle tri(3., 4., 5.);
 			Assert::IsTrue(tri.isValid());
 
+		}
+
+		TEST_METHOD(TestTriangle_ToString) {
+			double side1 = 5;
+			double side2 = 6;
+			double side3 = 7.5;
+			Triangle tri(side1, side2, side3);
+			std::string expected("Triangle(side1=5,side2=6,side3=7.5)");
+			Assert::AreEqual(expected, tri.toString());
 		}
 	};
 }

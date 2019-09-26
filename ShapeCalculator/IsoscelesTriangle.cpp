@@ -1,4 +1,5 @@
 #include "IsoscelesTriangle.h"
+#include <sstream>
 
 IsoscelesTriangle::IsoscelesTriangle() : side(0.), base(0.) {
 
@@ -48,4 +49,10 @@ double IsoscelesTriangle::getArea() {
 
 bool IsoscelesTriangle::isValid() {
 	return (side + side > base) && side > 0 && base > 0;
+}
+
+std::string IsoscelesTriangle::toString() {
+	std::stringstream ss;
+	ss << "IsoscelesTriangle(side=" << side << ",base=" << base << ")";
+	return ss.str();
 }

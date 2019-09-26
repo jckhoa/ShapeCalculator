@@ -10,21 +10,23 @@ namespace UnitTest
 	{
 	public:
 
-		TEST_METHOD(TestConstructor0)
+		//Test empty constructor
+		TEST_METHOD(TestIsoscelesTriangle_Constructor0)
 		{
 			IsoscelesTriangle tri;
 			Assert::AreEqual(0., tri.getSide());
 			Assert::AreEqual(0., tri.getBase());
 		}
 
-		TEST_METHOD(TestConstructor1)
+		//Test constructor with 2 arguments
+		TEST_METHOD(TestIsoscelesTriangle_Constructor2)
 		{
 			IsoscelesTriangle tri(2., 3.);
 			Assert::AreEqual(2., tri.getSide());
 			Assert::AreEqual(3., tri.getBase());
 		}
 
-		TEST_METHOD(TestSetSize)
+		TEST_METHOD(TestIsoscelesTriangle_SetSize)
 		{
 			IsoscelesTriangle tri;
 			tri.setSize(2., 3.);
@@ -32,30 +34,30 @@ namespace UnitTest
 			Assert::AreEqual(3., tri.getBase());
 		}
 
-		TEST_METHOD(TestGetSide)
+		TEST_METHOD(TestIsoscelesTriangle_GetSide)
 		{
 			IsoscelesTriangle tri(2., 3.);
 			Assert::AreEqual(2., tri.getSide());
 		}
 
-		TEST_METHOD(TestGetBase)
+		TEST_METHOD(TestIsoscelesTriangle_GetBase)
 		{
 			IsoscelesTriangle tri(2., 3.);
 			Assert::AreEqual(3., tri.getBase());
 		}
 
-		TEST_METHOD(TestGetClassShapeType)
+		TEST_METHOD(TestIsoscelesTriangle_GetClassShapeType)
 		{
 			Assert::IsTrue(ShapeType::IsoscelesTriangle == IsoscelesTriangle::getClassShapeType());
 		}
 
-		TEST_METHOD(TestGetShapeType)
+		TEST_METHOD(TestIsoscelesTriangle_GetShapeType)
 		{
 			IsoscelesTriangle tri;
 			Assert::IsTrue(ShapeType::IsoscelesTriangle == tri.getShapeType());
 		}
 
-		TEST_METHOD(TestGetPerimeter)
+		TEST_METHOD(TestIsoscelesTriangle_GetPerimeter)
 		{
 			// Expect the perimeter to be zero for zero base length or zero side length
 			IsoscelesTriangle z0;
@@ -86,7 +88,7 @@ namespace UnitTest
 
 		}
 
-		TEST_METHOD(TestGetArea)
+		TEST_METHOD(TestIsoscelesTriangle_GetArea)
 		{
 			// Expect the area to be zero for zero base length or zero side length
 			IsoscelesTriangle z0;
@@ -117,7 +119,7 @@ namespace UnitTest
 
 		}
 
-		TEST_METHOD(TestIsValid)
+		TEST_METHOD(TestIsoscelesTriangle_IsValid)
 		{
 			// Expect false for zero base length or zero side length
 			IsoscelesTriangle z0;
@@ -144,6 +146,14 @@ namespace UnitTest
 			// Expect true for triangles with positive base and side and 2 * side > base
 			IsoscelesTriangle tri(5., 6.);
 			Assert::IsTrue(tri.isValid());
+		}
+
+		TEST_METHOD(TestIsoscelesTriangle_ToString) {
+			double side = 5;
+			double base = 6;
+			IsoscelesTriangle tri(side, base);
+			std::string expected("IsoscelesTriangle(side=5,base=6)");
+			Assert::AreEqual(expected, tri.toString());
 		}
 	};
 }

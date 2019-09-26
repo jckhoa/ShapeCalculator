@@ -36,6 +36,9 @@ public:
 	// If at least one of the condition is not met for a triangle, the function must return false.
 	virtual bool isValid() = 0;
 
+	// Return the string containing the shape info
+	virtual std::string toString() = 0;
+
 	// Destructor
 	virtual ~Shape() {}
 };
