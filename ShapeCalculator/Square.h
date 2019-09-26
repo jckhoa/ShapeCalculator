@@ -20,7 +20,7 @@ public:
 	void setSize(double sideLength);
 
 	// Get side length of the square
-	double getSideLength();
+	double getSideLength() const;
 
 	// return the shape type of the class
 	static ShapeType getClassShapeType();
@@ -28,21 +28,21 @@ public:
 	/////// Overriding functions ///////////
 
 	// Return the shape type of the object
-	ShapeType getShapeType();
+	ShapeType getShapeType() const;
 
 	// Compute and return the perimeter of the square
 	// Return 0. if the square is invalid.
-	double getPerimeter();
+	double getPerimeter() const;
 
 	// Compute and return the area of the square
 	// Return 0. if the square is invalid.
-	double getArea();
+	double getArea() const;
 
 	// Return true if the square is valid (side length is positive), false otherwise.
-	bool isValid();
+	bool isValid() const;
 
 	// Return the string containing the shape info
-	std::string toString();
+	std::string toString() const;
 
 private:
 

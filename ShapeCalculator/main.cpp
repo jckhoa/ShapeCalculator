@@ -127,7 +127,7 @@ int main(void) {
 		shapes.push_back(new Rectangle(0., 7.));
 		shapes.push_back(new Donut(-3, 4));
 
-		for (auto& shape : shapes) {
+		for (const auto& shape : shapes) {
 			std::cout << shape->toString() << " is valid ? " << (shape->isValid() ? "yes. " : "no. ") << std::endl;
 		}
 

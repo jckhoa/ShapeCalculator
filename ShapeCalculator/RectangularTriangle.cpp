@@ -16,11 +16,11 @@ void RectangularTriangle::setSize(double side1, double side2) {
 	this->s2 = side2;
 }
 
-double RectangularTriangle::getFirstSide() {
+double RectangularTriangle::getFirstSide() const {
 	return s1;
 }
 
-double RectangularTriangle::getSecondSide() {
+double RectangularTriangle::getSecondSide() const {
 	return s2;
 }
 
@@ -28,27 +28,27 @@ ShapeType RectangularTriangle::getClassShapeType() {
 	return ShapeType::RectangularTriangle;
 }
 
-ShapeType RectangularTriangle::getShapeType() {
+ShapeType RectangularTriangle::getShapeType() const {
 	return ShapeType::RectangularTriangle;
 };
 
-double RectangularTriangle::getPerimeter() {
+double RectangularTriangle::getPerimeter() const {
 	if (!isValid()) return 0.;
 	// using Pythagore theorem to compute the hypotenuse length
 	double s3 = sqrt(s1 * s1 + s2 * s2);
 	return s1 + s2 + s3;
 }
 
-double RectangularTriangle::getArea() {
+double RectangularTriangle::getArea() const {
 	if (!isValid()) return 0.;
 	return s1 * s2 / 2;
 }
 
-bool RectangularTriangle::isValid() {
+bool RectangularTriangle::isValid() const {
 	return s1 > 0 && s2 > 0;
 }
 
-std::string RectangularTriangle::toString() {
+std::string RectangularTriangle::toString() const {
 	std::stringstream ss;
 	ss << "RectangularTriangle(side1=" << s1 << ",side2=" << s2 << ")";
 	return ss.str();

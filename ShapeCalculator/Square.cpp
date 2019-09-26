@@ -15,7 +15,7 @@ void Square::setSize(double sideLength) {
 	side = sideLength;
 }
 
-double Square::getSideLength() {
+double Square::getSideLength() const {
 	return side;
 }
 
@@ -23,25 +23,25 @@ ShapeType Square::getClassShapeType() {
 	return ShapeType::Square;
 }
 
-ShapeType Square::getShapeType() {
+ShapeType Square::getShapeType() const {
 	return ShapeType::Square;
 };
 
-double Square::getPerimeter() {
+double Square::getPerimeter() const {
 	if (!isValid()) return 0.;
 	return side * 4;
 }
 
-double Square::getArea() {
+double Square::getArea() const {
 	if (!isValid()) return 0.;
 	return side * side;
 }
 
-bool Square::isValid() {
+bool Square::isValid() const {
 	return side > 0;
 }
 
-std::string Square::toString() {
+std::string Square::toString() const {
 	std::stringstream ss;
 	ss << "Square(side=" << side << ")";
 	return ss.str();

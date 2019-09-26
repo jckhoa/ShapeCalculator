@@ -11,7 +11,7 @@ class Shape {
 public:
 
 	// Return the name of the shape
-	virtual ShapeType getShapeType() = 0;
+	virtual ShapeType getShapeType() const = 0;
 
 	// Return the pointer to the casted type.
 	// The valid pointer is returned if the casted type is derived class, else a nullptr is returned
@@ -34,10 +34,10 @@ public:
 	// a + c > b
 	// b + c > a
 	// If at least one of the condition is not met for a triangle, the function must return false.
-	virtual bool isValid() = 0;
+	virtual bool isValid() const = 0;
 
 	// Return the string containing the shape info
-	virtual std::string toString() = 0;
+	virtual std::string toString() const = 0;
 
 	// Destructor
 	virtual ~Shape() {}

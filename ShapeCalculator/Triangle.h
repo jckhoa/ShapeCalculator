@@ -21,13 +21,13 @@ public:
 	void setSize(double side1, double side2, double side3);
 
 	// Return the first side of the triangle
-	double getFirstSide();
+	double getFirstSide() const;
 
 	// Return the second side of the triangle
-	double getSecondSide();
+	double getSecondSide() const;
 
 	// Return the third side of the triangle
-	double getThirdSide();
+	double getThirdSide() const;
 
 	// return the shape type of the class
 	static ShapeType getClassShapeType();
@@ -35,23 +35,23 @@ public:
 	/////// Overriding functions ///////////
 	
 	// Return the shape type of the object
-	ShapeType getShapeType();
+	ShapeType getShapeType() const;
 
 	// Compute and return the perimeter of the triangle.
 	// Return 0. if the triangle is invalid.
-	double getPerimeter();
+	double getPerimeter() const;
 
 	// Compute and return the area of the triangle.
 	// Return 0. if the triangle is invalid.
-	double getArea();
+	double getArea() const;
 
 	// Return true if the triangle is valid, false otherwise.
 	// A valid triangle with side lengths a, b, and c, must satisfy 3 following conditions
 	// (1) a + b > c (2) a + c > b (3) b + c > a
-	bool isValid();
+	bool isValid() const;
 
 	// Return the string containing the shape info
-	std::string toString();
+	std::string toString() const;
 
 private:
 

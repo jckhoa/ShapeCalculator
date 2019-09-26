@@ -16,11 +16,11 @@ void IsoscelesTriangle::setSize(double side, double base) {
 	this->base = base;
 }
 
-double IsoscelesTriangle::getSide() {
+double IsoscelesTriangle::getSide() const {
 	return side;
 }
 
-double IsoscelesTriangle::getBase() {
+double IsoscelesTriangle::getBase() const {
 	return base;
 }
 
@@ -28,16 +28,16 @@ ShapeType IsoscelesTriangle::getClassShapeType() {
 	return ShapeType::IsoscelesTriangle;
 }
 
-ShapeType IsoscelesTriangle::getShapeType() {
+ShapeType IsoscelesTriangle::getShapeType() const {
 	return ShapeType::IsoscelesTriangle;
 };
 
-double IsoscelesTriangle::getPerimeter() {
+double IsoscelesTriangle::getPerimeter() const {
 	if (!isValid()) return 0.;
 	return side * 2 + base;
 }
 
-double IsoscelesTriangle::getArea() {
+double IsoscelesTriangle::getArea() const {
 	if (!isValid()) return 0.;
 
 	// compute height from Pythagore theorem
@@ -47,11 +47,11 @@ double IsoscelesTriangle::getArea() {
 	return halfBase * height;
 }
 
-bool IsoscelesTriangle::isValid() {
+bool IsoscelesTriangle::isValid() const {
 	return (side + side > base) && side > 0 && base > 0;
 }
 
-std::string IsoscelesTriangle::toString() {
+std::string IsoscelesTriangle::toString() const {
 	std::stringstream ss;
 	ss << "IsoscelesTriangle(side=" << side << ",base=" << base << ")";
 	return ss.str();

@@ -21,10 +21,10 @@ public:
 	void setSize(double side, double base);
 
 	// Return the side length of the isosceles triangle
-	double getSide();
+	double getSide() const;
 
 	// Return the base length of the isosceles triangle
-	double getBase();
+	double getBase() const;
 
 	// Return the shape type of the class
 	static ShapeType getClassShapeType();
@@ -32,21 +32,21 @@ public:
 	/////// Overriding functions ///////////
 	
 	// Return the shape type of the object
-	ShapeType getShapeType();
+	ShapeType getShapeType() const;
 
 	// Compute and return the perimeter of the isosceles triangle
 	// Return 0. if the isosceles triangle is invalid.
-	double getPerimeter();
+	double getPerimeter() const;
 
 	// Compute and return the area of the isosceles triangle
 	// Return 0. if the isosceles triangle is invalid.
-	double getArea();
+	double getArea() const;
 
 	// Return true if the isoseles triangle is valid, i.e. valid condition for base and side lengths, false otherwise.
-	bool isValid();
+	bool isValid() const;
 
 	// Return the string containing the shape info
-	std::string toString();
+	std::string toString() const;
 
 private:
 

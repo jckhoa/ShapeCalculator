@@ -21,10 +21,10 @@ public:
 	void setSize(double side1, double side2);
 
 	// Get the first side length of the rectangular triangle.
-	double getFirstSide();
+	double getFirstSide() const;
 
 	// Get the second side length of the rectangular triangle.
-	double getSecondSide();
+	double getSecondSide() const;
 
 	// Return the shape type of the class
 	static ShapeType getClassShapeType();
@@ -32,21 +32,21 @@ public:
 	/////// Overriding functions ///////////
 	
 	// Return the shape type of the object
-	ShapeType getShapeType();
+	ShapeType getShapeType() const;
 
 	// Compute and return the perimeter of the rectangular triangle
 	// Return 0. if the rectangular triangle is invalid.
-	double getPerimeter();
+	double getPerimeter() const;
 
 	// Compute and return the area of the rectangular triangle
 	// Return 0. if the rectangular triangle is invalid.
-	double getArea();
+	double getArea() const;
 
 	// Return true if the rectangular triangle is valid (both side lengths are positive), false otherwise.
-	bool isValid();
+	bool isValid() const;
 
 	// Return the string containing the shape info
-	std::string toString();
+	std::string toString() const;
 
 private:
 

@@ -23,11 +23,11 @@ void Donut::setSize(double radius1, double radius2) {
 	}
 }
 
-double Donut::getInternalRadius() {
+double Donut::getInternalRadius() const {
 	return ci.getRadius();
 }
 
-double Donut::getExternalRadius() {
+double Donut::getExternalRadius() const {
 	return ce.getRadius();
 }
 
@@ -36,25 +36,25 @@ ShapeType Donut::getClassShapeType() {
 	return ShapeType::Donut;
 }
 
-ShapeType Donut::getShapeType() {
+ShapeType Donut::getShapeType() const {
 	return ShapeType::Donut;
 };
 
-double Donut::getPerimeter() {
+double Donut::getPerimeter() const {
 	if (!isValid()) return 0.;
 	return ci.getPerimeter() + ce.getPerimeter();
 }
 
-double Donut::getArea() {
+double Donut::getArea() const {
 	if (!isValid()) return 0.;
 	return ce.getArea() - ci.getArea();
 }
 
-bool Donut::isValid() {
+bool Donut::isValid() const {
 	return ci.isValid() && ce.isValid() && ci.getRadius() != ce.getRadius();
 }
 
-std::string Donut::toString() {
+std::string Donut::toString() const {
 	std::stringstream ss;
 	ss << "Donut(intern_radius=" << ci.getRadius() << ",extern_radius=" << ce.getRadius() << ")";
 	return ss.str();

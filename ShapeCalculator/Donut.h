@@ -20,10 +20,10 @@ public:
 	void setSize(double radius1, double radius2);
 
 	// Return the internal radius of the donut.
-	double getInternalRadius();
+	double getInternalRadius() const;
 
 	// Return the external radius of the donut.
-	double getExternalRadius();
+	double getExternalRadius() const;
 
 	// Return the shape type of the class
 	static ShapeType getClassShapeType();
@@ -31,21 +31,21 @@ public:
 	/////// Overriding functions from base classes ///////////
 
 	// Return the shape type of the object
-	ShapeType getShapeType();
+	ShapeType getShapeType() const;
 
 	// Compute and return the perimeter of the donut
 	// Return 0. if the donut is invalid.
-	double getPerimeter();
+	double getPerimeter() const;
 
 	// Compute and return the area of the donut
 	// Return 0. if the donut is invalid.
-	double getArea();
+	double getArea() const;
 
 	// Return true if the donut is valid (i.e. the internal and external circle are valid and their outlines do not overlap), false otherwise
-	bool isValid();
+	bool isValid() const;
 
 	// Return the string containing the shape info
-	std::string toString();
+	std::string toString() const;
 
 private:
 	Circle ci; // internal circle

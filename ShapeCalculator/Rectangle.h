@@ -20,13 +20,13 @@ public:
 	void setSize(double width, double height);
 
 	// Return the width of the rectangle
-	double getWidth();
+	double getWidth() const;
 
 	// Return the height of the rectangle
-	double getHeight();
+	double getHeight() const;
 
 	// Return true if this rectangle is a square (width is equal to height), false otherwise.
-	bool isSquare();
+	bool isSquare() const;
 
 	// return the shape type of the class
 	static ShapeType getClassShapeType();
@@ -34,21 +34,21 @@ public:
 	/////// Overriding functions ///////////
 
 	// Return the shape type of the object
-	ShapeType getShapeType();
+	ShapeType getShapeType() const;
 
 	// Compute and return the perimeter of the rectangle.
 	// Return 0. if the rectangle is invalid.
-	double getPerimeter();
+	double getPerimeter() const;
 
 	// Compute and return the area of the rectangle.
 	// Return 0. if the rectangle is invalid.
-	double getArea();
+	double getArea() const;
 
 	// Return true if the rectangle is valid (width and height are positive), false otherwise.
-	bool isValid();
+	bool isValid() const;
 
 	// Return the string containing the shape info
-	std::string toString();
+	std::string toString() const;
 
 private:
 

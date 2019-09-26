@@ -17,15 +17,15 @@ void Triangle::setSize(double side1, double side2, double side3) {
 	c = side3;
 }
 
-double Triangle::getFirstSide() {
+double Triangle::getFirstSide() const {
 	return a;
 }
 
-double Triangle::getSecondSide() {
+double Triangle::getSecondSide() const {
 	return b;
 }
 
-double Triangle::getThirdSide() {
+double Triangle::getThirdSide() const {
 	return c;
 }
 
@@ -33,16 +33,16 @@ ShapeType Triangle::getClassShapeType() {
 	return ShapeType::Triangle;
 }
 
-ShapeType Triangle::getShapeType() {
+ShapeType Triangle::getShapeType() const {
 	return ShapeType::Triangle;
 };
 
-double Triangle::getPerimeter() {
+double Triangle::getPerimeter() const {
 	if (!isValid()) return 0.;
 	return a + b + c;
 }
 
-double Triangle::getArea() {
+double Triangle::getArea() const {
 	// Return 0. if the triangle is invalid
 	if (!isValid()) return 0.;
 
@@ -51,11 +51,11 @@ double Triangle::getArea() {
 	return sqrt(p * (p - a) * (p - b) * (p - c));
 }
 
-bool Triangle::isValid() {
+bool Triangle::isValid() const {
 	return (a + b > c) && (a + c > b) && (b + c > a);
 }
 
-std::string Triangle::toString() {
+std::string Triangle::toString() const {
 	std::stringstream ss;
 	ss << "Triangle(side1=" << a << ",side2=" << b << ",side3=" << c << ")";
 	return ss.str();

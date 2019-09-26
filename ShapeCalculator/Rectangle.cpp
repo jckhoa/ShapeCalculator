@@ -14,15 +14,15 @@ void Rectangle::setSize(double width, double height) {
 	this->height = height;
 }
 
-double Rectangle::getWidth() {
+double Rectangle::getWidth() const {
 	return width;
 }
 
-double Rectangle::getHeight() {
+double Rectangle::getHeight() const {
 	return height;
 }
 
-bool Rectangle::isSquare() {
+bool Rectangle::isSquare() const {
 	return width == height;
 }
 
@@ -30,25 +30,25 @@ ShapeType Rectangle::getClassShapeType() {
 	return ShapeType::Rectangle;
 }
 
-ShapeType Rectangle::getShapeType() {
+ShapeType Rectangle::getShapeType() const {
 	return ShapeType::Rectangle;
 };
 
-double Rectangle::getPerimeter() {
+double Rectangle::getPerimeter() const {
 	if (!isValid()) return 0.;
 	return (width + height) * 2;
 }
 
-double Rectangle::getArea() {
+double Rectangle::getArea() const {
 	if (!isValid()) return 0.;
 	return width * height;
 }
 
-bool Rectangle::isValid() {
+bool Rectangle::isValid() const {
 	return width > 0 && height > 0;
 }
 
-std::string Rectangle::toString() {
+std::string Rectangle::toString() const {
 	std::stringstream ss;
 	ss << "Rectangle(width=" << width << ",height=" << height << ")";
 	return ss.str();

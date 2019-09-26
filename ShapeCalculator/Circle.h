@@ -22,7 +22,7 @@ public:
 	void setSize(double radius);
 
 	// Return the radius of the circle
-	double getRadius();
+	double getRadius() const;
 
 	// Return the shape type of the class
 	static ShapeType getClassShapeType();
@@ -30,21 +30,21 @@ public:
 	/////// Overriding functions from base classes ///////////
 
 	// Return the shape type of the object
-	ShapeType getShapeType();
+	ShapeType getShapeType() const;
 
 	// Compute and return the perimeter of the circle.
 	// Return 0. if the circle is invalid.
-	double getPerimeter();
+	double getPerimeter() const;
 
 	// Compute and return the area of the circle
 	// Return 0. if the circle is invalid.
-	double getArea();
+	double getArea() const;
 
 	// Return true if the circle is valid (the radius is positive), false otherwise.
-	bool isValid();
+	bool isValid() const;
 
 	// Return the string containing the shape info
-	std::string toString();
+	std::string toString() const;
 
 private:
 
