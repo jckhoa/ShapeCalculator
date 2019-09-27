@@ -39,6 +39,9 @@ public:
 	// Return the string containing the shape info
 	virtual std::string toString() const = 0;
 
+	// Return the string containing shape properties
+	virtual std::string getPropertyString() const = 0;
+
 	// Destructor
 	virtual ~Shape() {}
 };
