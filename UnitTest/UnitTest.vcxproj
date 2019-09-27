@@ -113,7 +113,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(SolutionDir)\ShapeCalculator\x64\Debug;$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Circle.obj;Donut.obj;IsoscelesTriangle.obj;Rectangle.obj;RectangularTriangle.obj;Square.obj;Triangle.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Circle.obj;Donut.obj;IsoscelesTriangle.obj;Rectangle.obj;RectangularTriangle.obj;Square.obj;Triangle.obj;ArgumentParser.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -150,7 +150,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(SolutionDir)\ShapeCalculator\x64\Release;$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Circle.obj;Donut.obj;IsoscelesTriangle.obj;Rectangle.obj;RectangularTriangle.obj;Square.obj;Triangle.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Circle.obj;Donut.obj;IsoscelesTriangle.obj;Rectangle.obj;RectangularTriangle.obj;Square.obj;Triangle.obj;ArgumentParser.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -164,6 +164,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="testArgumentParser.cpp" />
     <ClCompile Include="testCircle.cpp" />
     <ClCompile Include="testDonut.cpp" />
     <ClCompile Include="testIsoscelesTriangle.cpp" />

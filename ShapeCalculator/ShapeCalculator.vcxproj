@@ -143,10 +143,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ArgumentParser.h" />
     <ClInclude Include="Circle.h" />
     <ClInclude Include="CircleShape.h" />
     <ClInclude Include="Donut.h" />
     <ClInclude Include="IsoscelesTriangle.h" />
+    <ClInclude Include="Option.h" />
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="RectangleShape.h" />
     <ClInclude Include="RectangularTriangle.h" />
@@ -159,6 +161,7 @@
     <ClInclude Include="TriangleShape.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ArgumentParser.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Donut.cpp" />
     <ClCompile Include="IsoscelesTriangle.cpp" />

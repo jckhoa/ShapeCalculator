@@ -2,7 +2,9 @@
 
 #include <iostream>
 #include <vector>
+#include "ArgumentParser.h"
 
+/*
 #include "Circle.h"
 #include "Donut.h"
 #include "Triangle.h"
@@ -10,8 +12,20 @@
 #include "RectangularTriangle.h"
 #include "Square.h"
 #include "Rectangle.h"
+*/
 
-int main(void) {
+int main(int argc, char *argv[]) {
+	ArgumentParser parser;
+	std::string errorMessage;
+	if (parser.process(argc, argv, errorMessage)) {
+		std::cout << parser.getResults() << std::endl;
+	}
+	else {
+		std::cout << errorMessage << std::endl;
+		std::cout << std::endl << parser.getHelpMessage() << std::endl;
+	}
+
+	/*
 	// some Circle usage
 	std::cout << std::endl << "------- Example on some Circle usage ------" << std::endl;
 	{
@@ -139,7 +153,7 @@ int main(void) {
 
 		for (auto& shape : shapes) delete shape;
 	}
-
+	*/
 	return 0;
 
 }
