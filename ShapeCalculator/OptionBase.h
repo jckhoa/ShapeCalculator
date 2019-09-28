@@ -4,15 +4,18 @@
 #include <vector>
 #include <sstream>
 
+// The abstract class OptionBase is a base class for defining options in command line
+
 class OptionBase {
 public:
 	// Construct the option base
 	// optionName: set it to "r" if the command line option is to be "-r" for rectangle
-	// argmentDescription: set it to "width height" if the command line option is to be "-r width height"
-	// shapeName: set it to "Rectangle" if the command line option "-r" is for computing Rectangle
-	// argumentCount: set it to 2 for a Rectangle because two values are needed (width and height)
-	OptionBase(const std::string& optionName, const std::string& argumentDescription, const std::string& shapeName, unsigned int argumentCount)
-		: optionName(optionName), argumentDescription(argumentDescription), shapeName(shapeName), argumentCount(argumentCount)
+	// arguments: a string listing arguments in order separated by space. 
+	// For example, arguments = "width height" corresponds to command line option "-r width height"
+	// optionDescription: describe the option. For example optionDescription = "Compute perimeter and area of a rectangle".
+	// argumentDescription: a string describing in detail the arguments.
+	OptionBase(const std::string& optionName, const std::string& arguments, const std::string& optionDescription = "", const std::string& argumentDescription = "")
+		: optName(optionName), argStr(arguments), optDescription(optionDescription), argDescription(argumentDescription)
 	{
 
 	}
@@ -20,44 +23,48 @@ public:
 	// Destructor
 	virtual ~OptionBase() {}
 
-	// Return the option name
-	const std::string& getOptionName() {
-		return optionName;
+	// Return the option name. For example: return "r" for rectangle, the command line option will be "-r"
+	const std::string& getOptionName() const {
+		return optName;
 	}
 
-	// Return the number of required arguments for shape computation
-	virtual size_t getArgumentCount() const = 0;
+	// Return arguments string. For example: return "width height" for rectangle
+	const std::string& getArguments() const {
+		return argStr;
+	}
 
-	// Return message for the shape
-	std::string getMessage() const {
-		std::stringstream ss;
-		ss << "Compute geometric parameters of " << shapeName << ". ";
-		return ss.str();
+	// Return the option description string
+	const std::string& getOptionDescription() const {
+		return optDescription;
+	}
+
+	// Return the argument description string
+	const std::string& getArgumentDescription() const {
+		return argDescription;
 	}
 
 	// Return error message on arguments
 	std::string getArgumentErrorMessage() const {
 		std::stringstream ss;
-		ss << "Wrong argument type or number of arguments for " << shapeName << ".";
+		ss << "Wrong argument type or number of arguments for option -" << getOptionName() << ".";
 		return ss.str();
 	}
 
-	// Return the argument description string
-	std::string getArgumentMessage() const {
+	// Return full command string. For example: return "-r width height" for rectangle
+	std::string getFullCommand() const {
 		std::stringstream ss;
-		ss << argumentDescription;
+		ss << "-" << getOptionName() << " " << getArguments();
 		return ss.str();
 	}
 
-	// Return the string containing the results after shape computation
-	// Allow the maximum number of parameters to 7
-	virtual std::string getShapeResult(const std::vector<double>& params) const = 0;
 
-protected:
-	
+	// Return the number of required arguments for shape computation. Must be overridden
+	virtual size_t getArgumentCount() const = 0;
 
-protected:
-	std::string optionName;
-	std::string argumentDescription;
-	std::string shapeName;
+private:
+
+	std::string optName;  // option name
+	std::string argStr;   // string listing arguments in order
+	std::string optDescription; // description of the option
+	std::string argDescription; // description of the arguments
 };
