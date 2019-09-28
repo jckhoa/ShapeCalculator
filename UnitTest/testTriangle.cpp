@@ -60,6 +60,48 @@ namespace UnitTest
 			Assert::IsTrue(Triangle::getClassShapeName() == "Triangle");
 		}
 
+		TEST_METHOD(TestTriangle_getSerializationSize)
+		{
+			Triangle tri;
+			Assert::IsTrue(tri.getSerializationSize() == 3);
+		}
+
+		// Test setDimension(const std::vector<double>&)
+		TEST_METHOD(TestTriangle_setDimension_vector)
+		{
+			Triangle tri;
+			std::vector<double> v1;
+			tri.setDimension(v1);
+			Assert::AreEqual(0., tri.getFirstSide());
+			Assert::AreEqual(0., tri.getSecondSide());
+			Assert::AreEqual(0., tri.getThirdSide());
+
+			std::vector<double> v2 = { 2.5 };
+			tri.setDimension(v2);
+			Assert::AreEqual(2.5, tri.getFirstSide());
+			Assert::AreEqual(0., tri.getSecondSide());
+			Assert::AreEqual(0., tri.getThirdSide());
+
+			std::vector<double> v3 = { 3., 2.5 };
+			tri.setDimension(v3);
+			Assert::AreEqual(3., tri.getFirstSide());
+			Assert::AreEqual(2.5, tri.getSecondSide());
+			Assert::AreEqual(0., tri.getThirdSide());
+
+			std::vector<double> v4 = { 7.4, 3., 2.5 };
+			tri.setDimension(v4);
+			Assert::AreEqual(7.4, tri.getFirstSide());
+			Assert::AreEqual(3., tri.getSecondSide());
+			Assert::AreEqual(2.5, tri.getThirdSide());
+
+			std::vector<double> v5 = { 5.3, 8.3, 3.6, 10.4 };
+			tri.setDimension(v5);
+			Assert::AreEqual(5.3, tri.getFirstSide());
+			Assert::AreEqual(8.3, tri.getSecondSide());
+			Assert::AreEqual(3.6, tri.getThirdSide());
+
+		}
+
 		TEST_METHOD(TestTriangle_getShapeName)
 		{
 			Triangle tri;

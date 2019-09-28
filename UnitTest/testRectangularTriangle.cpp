@@ -51,6 +51,38 @@ namespace UnitTest
 			Assert::IsTrue(RectangularTriangle::getClassShapeName() == "RectangularTriangle");
 		}
 
+		TEST_METHOD(TestRectangularTriangle_getSerializationSize)
+		{
+			RectangularTriangle tri;
+			Assert::IsTrue(tri.getSerializationSize() == 2);
+		}
+
+		// Test setDimension(const std::vector<double>&)
+		TEST_METHOD(TestRectangularTriangle_setDimension_vector)
+		{
+			RectangularTriangle tri;
+			std::vector<double> v1;
+			tri.setDimension(v1);
+			Assert::AreEqual(0., tri.getFirstSide());
+			Assert::AreEqual(0., tri.getSecondSide());
+
+			std::vector<double> v2 = { 2.5 };
+			tri.setDimension(v2);
+			Assert::AreEqual(2.5, tri.getFirstSide());
+			Assert::AreEqual(0., tri.getSecondSide());
+
+			std::vector<double> v3 = { 3., 2.5 };
+			tri.setDimension(v3);
+			Assert::AreEqual(3., tri.getFirstSide());
+			Assert::AreEqual(2.5, tri.getSecondSide());
+
+			std::vector<double> v4 = { 7.4, 3., 2.5 };
+			tri.setDimension(v4);
+			Assert::AreEqual(7.4, tri.getFirstSide());
+			Assert::AreEqual(3., tri.getSecondSide());
+
+		}
+
 		TEST_METHOD(TestRectangularTriangle_getShapeName)
 		{
 			RectangularTriangle rec;

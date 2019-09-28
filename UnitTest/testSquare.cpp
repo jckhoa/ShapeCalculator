@@ -42,6 +42,30 @@ namespace UnitTest
 			Assert::IsTrue(Square::getClassShapeName() == "Square");
 		}
 
+
+		TEST_METHOD(TestSquare_getSerializationSize)
+		{
+			Square rec;
+			Assert::IsTrue(rec.getSerializationSize() == 1);
+		}
+
+		// Test setDimension(const std::vector<double>&)
+		TEST_METHOD(TestSquare_setDimension_vector)
+		{
+			Square rec;
+			std::vector<double> v1;
+			rec.setDimension(v1);
+			Assert::AreEqual(0., rec.getSide());
+
+			std::vector<double> v2 = { 2.5 };
+			rec.setDimension(v2);
+			Assert::AreEqual(2.5, rec.getSide());
+			
+			std::vector<double> v3 = { 3., 6.8 };
+			rec.setDimension(v3);
+			Assert::AreEqual(3., rec.getSide());
+		}
+
 		TEST_METHOD(TestSquare_getShapeName)
 		{
 			Square rec;

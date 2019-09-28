@@ -62,6 +62,39 @@ namespace UnitTest
 			Assert::IsTrue(Rectangle::getClassShapeName() == "Rectangle");
 		}
 
+
+		TEST_METHOD(TestRectangle_getSerializationSize)
+		{
+			Rectangle rec;
+			Assert::IsTrue(rec.getSerializationSize() == 2);
+		}
+
+		// Test setDimension(const std::vector<double>&)
+		TEST_METHOD(TestRectangle_setDimension_vector)
+		{
+			Rectangle rec;
+			std::vector<double> v1;
+			rec.setDimension(v1);
+			Assert::AreEqual(0., rec.getWidth());
+			Assert::AreEqual(0., rec.getHeight());
+
+			std::vector<double> v2 = { 2.5 };
+			rec.setDimension(v2);
+			Assert::AreEqual(2.5, rec.getWidth());
+			Assert::AreEqual(0., rec.getHeight());
+
+			std::vector<double> v3 = { 3., 6.8 };
+			rec.setDimension(v3);
+			Assert::AreEqual(3., rec.getWidth());
+			Assert::AreEqual(6.8, rec.getHeight());
+
+			std::vector<double> v4 = { 7.4, 3., 2.5 };
+			rec.setDimension(v4);
+			Assert::AreEqual(7.4, rec.getWidth());
+			Assert::AreEqual(3., rec.getHeight());
+
+		}
+
 		TEST_METHOD(TestRectangle_getShapeName)
 		{
 			Rectangle rec;

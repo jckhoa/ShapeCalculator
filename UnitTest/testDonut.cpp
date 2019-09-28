@@ -70,6 +70,39 @@ namespace UnitTest
 			Assert::IsTrue(Donut::getClassShapeName() == "Donut");
 		}
 
+
+		TEST_METHOD(TestDonut_getSerializationSize)
+		{
+			Donut d;
+			Assert::IsTrue(d.getSerializationSize() == 2);
+		}
+
+		// Test setDimension(const std::vector<double>&)
+		TEST_METHOD(TestDonut_setDimension_vector)
+		{
+			Donut d;
+			std::vector<double> v1;
+			d.setDimension(v1);
+			Assert::AreEqual(0., d.getInternalRadius());
+			Assert::AreEqual(0., d.getExternalRadius());
+
+			std::vector<double> v2 = { 2.5 };
+			d.setDimension(v2);
+			Assert::AreEqual(0., d.getInternalRadius());
+			Assert::AreEqual(2.5, d.getExternalRadius());
+
+			std::vector<double> v3 = { 3., 2.5 };
+			d.setDimension(v3);
+			Assert::AreEqual(2.5, d.getInternalRadius());
+			Assert::AreEqual(3., d.getExternalRadius());
+
+			std::vector<double> v4 = { 7.4, 3., 2.5 };
+			d.setDimension(v4);
+			Assert::AreEqual(3., d.getInternalRadius());
+			Assert::AreEqual(7.4, d.getExternalRadius());
+
+		}
+
 		TEST_METHOD(TestDonut_getShapeName)
 		{
 			Donut c;

@@ -51,6 +51,38 @@ namespace UnitTest
 			Assert::IsTrue(IsoscelesTriangle::getClassShapeName() == "IsoscelesTriangle");
 		}
 
+		TEST_METHOD(TestIsoscelesTriangle_getSerializationSize)
+		{
+			IsoscelesTriangle tri;
+			Assert::IsTrue(tri.getSerializationSize() == 2);
+		}
+
+		// Test setDimension(const std::vector<double>&)
+		TEST_METHOD(TestIsoscelesTriangle_setDimension_vector)
+		{
+			IsoscelesTriangle tri;
+			std::vector<double> v1;
+			tri.setDimension(v1);
+			Assert::AreEqual(0., tri.getSide());
+			Assert::AreEqual(0., tri.getBase());
+
+			std::vector<double> v2 = { 2.5 };
+			tri.setDimension(v2);
+			Assert::AreEqual(2.5, tri.getSide());
+			Assert::AreEqual(0., tri.getBase());
+
+			std::vector<double> v3 = { 3., 2.5 };
+			tri.setDimension(v3);
+			Assert::AreEqual(3., tri.getSide());
+			Assert::AreEqual(2.5, tri.getBase());
+
+			std::vector<double> v4 = { 7.4, 3., 2.5 };
+			tri.setDimension(v4);
+			Assert::AreEqual(7.4, tri.getSide());
+			Assert::AreEqual(3., tri.getBase());
+
+		}
+
 		TEST_METHOD(TestIsoscelesTriangle_getShapeName)
 		{
 			IsoscelesTriangle tri;

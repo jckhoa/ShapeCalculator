@@ -24,7 +24,8 @@ namespace UnitTest
 			Assert::AreEqual(2., c.getRadius());
 		}
 
-		TEST_METHOD(TestCircle_setDimension)
+		// Test setDimension(double)
+		TEST_METHOD(TestCircle_setDimension_double)
 		{
 			Circle c(2.);
 			c.setDimension(2.5);
@@ -40,6 +41,30 @@ namespace UnitTest
 		TEST_METHOD(TestCircle_getClassShapeName)
 		{
 			Assert::IsTrue(Circle::getClassShapeName() == "Circle");
+		}
+
+		TEST_METHOD(TestCircle_getSerializationSize)
+		{
+			Circle c;
+			Assert::IsTrue(c.getSerializationSize() == 1);
+		}
+
+		// Test setDimension(const std::vector<double>&)
+		TEST_METHOD(TestCircle_setDimension_vector)
+		{
+			Circle c;
+			std::vector<double> v1;
+			c.setDimension(v1);
+			Assert::AreEqual(0., c.getRadius());
+
+			std::vector<double> v2 = { 2.5 };
+			c.setDimension(v2);
+			Assert::AreEqual(2.5, c.getRadius());
+
+			std::vector<double> v3 = { 3., 2.5 };
+			c.setDimension(v3);
+			Assert::AreEqual(3., c.getRadius());
+
 		}
 
 		TEST_METHOD(TestCircle_getShapeName)
