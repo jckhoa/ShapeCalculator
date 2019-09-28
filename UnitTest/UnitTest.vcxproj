@@ -168,6 +168,7 @@
     <ClCompile Include="testCircle.cpp" />
     <ClCompile Include="testDonut.cpp" />
     <ClCompile Include="testIsoscelesTriangle.cpp" />
+    <ClCompile Include="testPolymorphism.cpp" />
     <ClCompile Include="testRectangle.cpp" />
     <ClCompile Include="testRectangularTriangle.cpp" />
     <ClCompile Include="testSquare.cpp" />
