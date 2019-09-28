@@ -1,9 +1,7 @@
 #include "ArgumentParser.h"
 
-#include <string>
-#include <iostream>
-
 ArgumentParser::ArgumentParser() {
+
 }
 
 ArgumentParser::~ArgumentParser() {
@@ -41,11 +39,12 @@ bool ArgumentParser::process(int argc, char* argv[], std::string& errMessage) {
 		return false; 
 	}
 	else {
-		std::string option("");
+		std::string optionName("");
 		int index = 1;
 		while (index < argc) {
 			if (argv[index][0] == '-') {
-				option = std::string(argv[index]).substr(1);
+				// get the string part after '-'
+				optionName = std::string(argv[index]).substr(1);
 			}
 			else {
 				std::stringstream ss;
@@ -53,26 +52,34 @@ bool ArgumentParser::process(int argc, char* argv[], std::string& errMessage) {
 				errMessage = ss.str();
 				return false;
 			}
-			if (option == "h") {
+			if (optionName == "h") {
 				return false;
 			}
 
-			auto iter = options.find(option);
+			// search for the optionName in options
+			auto iter = options.find(optionName);
 			
 			if (iter == options.end()) {
+				// the optionName is not found
 				std::stringstream ss;
-				ss << "The option '" << option << "' is not found. ";
+				ss << "The option '-" << optionName << "' is not found. ";
 				errMessage = ss.str();
 				return false;
 			} 
 
+			const ShapeOptionBase& option = *iter->second;
+
 			std::vector<double> params;
-			if (!parseOptionArgument(*iter->second, index, argc, argv, params)) {
-				errMessage = iter->second->getArgumentErrorMessage();
+
+			// parse the next arguments depending on the option name
+			if (!parseOptionArgument(option, index, argc, argv, params)) {
+				// failure getting the correct arguments for this option
+				errMessage = option.getArgumentErrorMessage();
 				return false;
 			}
 
-			results.push_back(iter->second->getShapeResult(params));
+			// add the result string to results
+			results.push_back(option.getShapeResult(params));
 			
 			++index;
 		}

@@ -2,22 +2,23 @@
 
 
 #include <map>
-#include <array>
 
 #include "ShapeOption.h"
 
-
 // The class ArgumentParser is used for parsing argument from command line for the Shape Calculator program
+// Note: in the future, this class could be implemented following the Singleton pattern.
 
 class ArgumentParser {
+
 public:
+	
 	// Constructor
 	ArgumentParser();
 
 	// Destructor
 	~ArgumentParser();
 
-	//Return the options
+	//Return the current available options
 	const std::map<std::string, ShapeOptionBase*>& getOptions() const;
 
 	//Add an option for a shape
@@ -39,6 +40,7 @@ public:
 	std::string getResults() const;
 
 private:
+
 	// forbid copy constructor
 	ArgumentParser(const ArgumentParser& other) {}
 	
@@ -61,4 +63,5 @@ private:
 	
 	// Store the results
 	std::vector<std::string> results;
+
 };
