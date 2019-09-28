@@ -26,10 +26,10 @@ namespace UnitTest
 			Assert::AreEqual(3., tri.getBase());
 		}
 
-		TEST_METHOD(TestIsoscelesTriangle_SetSize)
+		TEST_METHOD(TestIsoscelesTriangle_setDimension)
 		{
 			IsoscelesTriangle tri;
-			tri.setSize(2., 3.);
+			tri.setDimension(2., 3.);
 			Assert::AreEqual(2., tri.getSide());
 			Assert::AreEqual(3., tri.getBase());
 		}
@@ -46,15 +46,15 @@ namespace UnitTest
 			Assert::AreEqual(3., tri.getBase());
 		}
 
-		TEST_METHOD(TestIsoscelesTriangle_GetClassShapeType)
+		TEST_METHOD(TestIsoscelesTriangle_getClassShapeName)
 		{
-			Assert::IsTrue(ShapeType::IsoscelesTriangle == IsoscelesTriangle::getClassShapeType());
+			Assert::IsTrue(IsoscelesTriangle::getClassShapeName() == "IsoscelesTriangle");
 		}
 
-		TEST_METHOD(TestIsoscelesTriangle_GetShapeType)
+		TEST_METHOD(TestIsoscelesTriangle_getShapeName)
 		{
 			IsoscelesTriangle tri;
-			Assert::IsTrue(ShapeType::IsoscelesTriangle == tri.getShapeType());
+			Assert::IsTrue(tri.getShapeName() == "IsoscelesTriangle");
 		}
 
 		TEST_METHOD(TestIsoscelesTriangle_GetPerimeter)
@@ -148,12 +148,12 @@ namespace UnitTest
 			Assert::IsTrue(tri.isValid());
 		}
 
-		TEST_METHOD(TestIsoscelesTriangle_ToString) {
+		TEST_METHOD(TestIsoscelesTriangle_getInfoString) {
 			double side = 5;
 			double base = 6;
 			IsoscelesTriangle tri(side, base);
 			std::string expected("IsoscelesTriangle(side=5,base=6)");
-			Assert::AreEqual(expected, tri.toString());
+			Assert::AreEqual(expected, tri.getInfoString());
 		}
 	};
 }

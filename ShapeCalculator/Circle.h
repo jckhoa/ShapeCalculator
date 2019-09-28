@@ -2,8 +2,7 @@
 
 #include "CircleShape.h"
 
-
-// The Circle (or Disque) class describes a circular shape with a radius.
+// The Circle (or Disque) class describes a circular shape from a radius.
 
 class Circle : public CircleShape {
 
@@ -19,24 +18,24 @@ public:
 	virtual ~Circle();
 
 	// Set the radius of the circle
-	void setSize(double radius = 0.);
+	void setDimension(double radius = 0.);
 
 	// Return the radius of the circle
 	double getRadius() const;
 
-	// Return the shape type of the class
-	static ShapeType getClassShapeType();
+	// Return the shape name of the class
+	static std::string getClassShapeName();
 
 	/////// Overriding functions from base classes ///////////
 
-	// Return the number of double value used in serialized input
+	// Return the number of double values used in serialized input
 	size_t getSerializationSize() const;
 
-	// Set input data from serialied double values
-	void setSize(const std::vector<double>& serializedInput);
+	// Set input data from serialized double values
+	void setDimension(const std::vector<double>& serializedInput);
 
-	// Return the shape type of the object
-	ShapeType getShapeType() const;
+	// Return the shape name of the object
+	std::string getShapeName() const;
 
 	// Compute and return the perimeter of the circle.
 	// Return 0. if the circle is invalid.
@@ -50,7 +49,7 @@ public:
 	bool isValid() const;
 
 	// Return the string containing the shape info
-	std::string toString() const;
+	std::string getInfoString() const;
 
 private:
 

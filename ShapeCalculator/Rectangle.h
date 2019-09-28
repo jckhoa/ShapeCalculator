@@ -2,7 +2,7 @@
 
 #include "RectangleShape.h"
 
-// The Rectangle class describes a rectangle with its width and height.
+// The Rectangle class describes a rectangle from its width and height.
 
 class Rectangle : public RectangleShape {
 
@@ -18,7 +18,7 @@ public:
 	virtual ~Rectangle();
 
 	// Set the width and height of the rectangle
-	void setSize(double width, double height);
+	void setDimension(double width, double height);
 
 	// Return the width of the rectangle
 	double getWidth() const;
@@ -29,19 +29,19 @@ public:
 	// Return true if this rectangle is a square (width is equal to height), false otherwise.
 	bool isSquare() const;
 
-	// return the shape type of the class
-	static ShapeType getClassShapeType();
+	// return the shape name of the class
+	static std::string getClassShapeName();
 
 	/////// Overriding functions ///////////
 
-	// Return the number of double value used in serialized input
+	// Return the number of double values used in serialized input
 	size_t getSerializationSize() const;
 
-	// Set input data from serialied double values
-	void setSize(const std::vector<double>& serializedInput);
+	// Set input data from serialized double values
+	void setDimension(const std::vector<double>& serializedInput);
 
-	// Return the shape type of the object
-	ShapeType getShapeType() const;
+	// Return the shape name of the object
+	std::string getShapeName() const;
 
 	// Compute and return the perimeter of the rectangle.
 	// Return 0. if the rectangle is invalid.
@@ -55,10 +55,12 @@ public:
 	bool isValid() const;
 
 	// Return the string containing the shape info
-	std::string toString() const;
+	std::string getInfoString() const;
 
 private:
 
 	double width; // width of the rectangle
-	double height; // heigh of the rectangle
+	
+	double height; // height of the rectangle
+
 };

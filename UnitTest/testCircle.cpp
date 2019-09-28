@@ -24,10 +24,10 @@ namespace UnitTest
 			Assert::AreEqual(2., c.getRadius());
 		}
 
-		TEST_METHOD(TestCircle_SetSize)
+		TEST_METHOD(TestCircle_setDimension)
 		{
 			Circle c(2.);
-			c.setSize(2.5);
+			c.setDimension(2.5);
 			Assert::AreEqual(2.5, c.getRadius());
 		}
 
@@ -37,15 +37,15 @@ namespace UnitTest
 			Assert::AreEqual(7.3234, c.getRadius());
 		}
 
-		TEST_METHOD(TestCircle_GetClassShapeType)
+		TEST_METHOD(TestCircle_getClassShapeName)
 		{
-			Assert::IsTrue(ShapeType::Circle == Circle::getClassShapeType());
+			Assert::IsTrue(Circle::getClassShapeName() == "Circle");
 		}
 
-		TEST_METHOD(TestCircle_GetShapeType)
+		TEST_METHOD(TestCircle_getShapeName)
 		{
 			Circle c;
-			Assert::IsTrue(ShapeType::Circle == c.getShapeType());
+			Assert::IsTrue(c.getShapeName() == "Circle");
 		}
 
 		TEST_METHOD(TestCircle_GetPerimeter)
@@ -105,11 +105,11 @@ namespace UnitTest
 
 		}
 
-		TEST_METHOD(TestCircle_ToString) {
+		TEST_METHOD(TestCircle_getInfoString) {
 			double radius = 5.5;
 			Circle c(radius);
 			std::string expected("Circle(radius=5.5)");
-			Assert::AreEqual(expected, c.toString());
+			Assert::AreEqual(expected, c.getInfoString());
 		}
 	};
 }

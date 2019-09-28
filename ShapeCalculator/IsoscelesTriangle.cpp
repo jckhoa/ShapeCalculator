@@ -1,5 +1,4 @@
 #include "IsoscelesTriangle.h"
-#include <sstream>
 
 IsoscelesTriangle::IsoscelesTriangle() : side(0.), base(0.) {
 
@@ -11,19 +10,16 @@ IsoscelesTriangle::IsoscelesTriangle(double side, double base) : side(side), bas
 
 IsoscelesTriangle::~IsoscelesTriangle() {}
 
-void IsoscelesTriangle::setSize(double side, double base) {
+void IsoscelesTriangle::setDimension(double side, double base) {
 	this->side = side;
 	this->base = base;
 }
 
-
-// Return the number of double value used in serialized input
 size_t IsoscelesTriangle::getSerializationSize()  const {
 	return 2;
 }
 
-// Set input data from serialied double values
-void IsoscelesTriangle::setSize(const std::vector<double>& serializedInput) {
+void IsoscelesTriangle::setDimension(const std::vector<double>& serializedInput) {
 	std::vector<double> data = getSerializedData(serializedInput);
 	side = data[0];
 	base = data[1];
@@ -38,12 +34,12 @@ double IsoscelesTriangle::getBase() const {
 	return base;
 }
 
-ShapeType IsoscelesTriangle::getClassShapeType() {
-	return ShapeType::IsoscelesTriangle;
+std::string IsoscelesTriangle::getClassShapeName() {
+	return "IsoscelesTriangle";
 }
 
-ShapeType IsoscelesTriangle::getShapeType() const {
-	return ShapeType::IsoscelesTriangle;
+std::string IsoscelesTriangle::getShapeName() const {
+	return "IsoscelesTriangle";
 };
 
 double IsoscelesTriangle::getPerimeter() const {
@@ -65,7 +61,7 @@ bool IsoscelesTriangle::isValid() const {
 	return (side + side > base) && side > 0 && base > 0;
 }
 
-std::string IsoscelesTriangle::toString() const {
+std::string IsoscelesTriangle::getInfoString() const {
 	std::stringstream ss;
 	ss << "IsoscelesTriangle(side=" << side << ",base=" << base << ")";
 	return ss.str();

@@ -24,10 +24,10 @@ namespace UnitTest
 			Assert::AreEqual(2., rec.getSide());
 		}
 
-		TEST_METHOD(TestSquare_SetSize)
+		TEST_METHOD(TestSquare_setDimension)
 		{
 			Square rec;
-			rec.setSize(2.);
+			rec.setDimension(2.);
 			Assert::AreEqual(2., rec.getSide());
 		}
 
@@ -37,15 +37,15 @@ namespace UnitTest
 			Assert::AreEqual(2., rec.getSide());
 		}
 
-		TEST_METHOD(TestSquare_GetClassShapeType)
+		TEST_METHOD(TestSquare_getClassShapeName)
 		{
-			Assert::IsTrue(ShapeType::Square == Square::getClassShapeType());
+			Assert::IsTrue(Square::getClassShapeName() == "Square");
 		}
 
-		TEST_METHOD(TestSquare_GetShapeType)
+		TEST_METHOD(TestSquare_getShapeName)
 		{
 			Square rec;
-			Assert::IsTrue(ShapeType::Square == rec.getShapeType());
+			Assert::IsTrue(rec.getShapeName() == "Square");
 		}
 
 		TEST_METHOD(TestSquare_GetPerimeter)
@@ -104,11 +104,11 @@ namespace UnitTest
 
 		}
 
-		TEST_METHOD(TestSquare_ToString) {
+		TEST_METHOD(TestSquare_getInfoString) {
 			double side = 5.5;
 			Square rec(side);
 			std::string expected("Square(side=5.5)");
-			Assert::AreEqual(expected, rec.toString());
+			Assert::AreEqual(expected, rec.getInfoString());
 		}
 	};
 }

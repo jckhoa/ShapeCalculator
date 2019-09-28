@@ -28,10 +28,10 @@ namespace UnitTest
 			Assert::AreEqual(4., tri.getThirdSide());
 		}
 
-		TEST_METHOD(TestTriangle_SetSize)
+		TEST_METHOD(TestTriangle_setDimension)
 		{
 			Triangle tri;
-			tri.setSize(2., 3., 4.);
+			tri.setDimension(2., 3., 4.);
 			Assert::AreEqual(2., tri.getFirstSide());
 			Assert::AreEqual(3., tri.getSecondSide());
 			Assert::AreEqual(4., tri.getThirdSide());
@@ -55,15 +55,15 @@ namespace UnitTest
 			Assert::AreEqual(4., tri.getThirdSide());
 		}
 
-		TEST_METHOD(TestTriangle_GetClassShapeType)
+		TEST_METHOD(TestTriangle_getClassShapeName)
 		{
-			Assert::IsTrue(ShapeType::Triangle == Triangle::getClassShapeType());
+			Assert::IsTrue(Triangle::getClassShapeName() == "Triangle");
 		}
 
-		TEST_METHOD(TestTriangle_GetShapeType)
+		TEST_METHOD(TestTriangle_getShapeName)
 		{
 			Triangle tri;
-			Assert::IsTrue(ShapeType::Triangle == tri.getShapeType());
+			Assert::IsTrue(tri.getShapeName() == "Triangle");
 		}
 
 		TEST_METHOD(TestTriangle_GetPerimeter)
@@ -188,13 +188,13 @@ namespace UnitTest
 
 		}
 
-		TEST_METHOD(TestTriangle_ToString) {
+		TEST_METHOD(TestTriangle_getInfoString) {
 			double side1 = 5;
 			double side2 = 6;
 			double side3 = 7.5;
 			Triangle tri(side1, side2, side3);
 			std::string expected("Triangle(side1=5,side2=6,side3=7.5)");
-			Assert::AreEqual(expected, tri.toString());
+			Assert::AreEqual(expected, tri.getInfoString());
 		}
 	};
 }

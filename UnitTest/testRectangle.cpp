@@ -26,10 +26,10 @@ namespace UnitTest
 			Assert::AreEqual(3., rec.getHeight());
 		}
 
-		TEST_METHOD(TestRectangle_SetSize)
+		TEST_METHOD(TestRectangle_setDimension)
 		{
 			Rectangle rec;
-			rec.setSize(2., 3.);
+			rec.setDimension(2., 3.);
 			Assert::AreEqual(2., rec.getWidth());
 			Assert::AreEqual(3., rec.getHeight());
 		}
@@ -57,15 +57,15 @@ namespace UnitTest
 			Assert::IsTrue(rec2.isSquare());
 		}
 
-		TEST_METHOD(TestRectangle_GetClassShapeType)
+		TEST_METHOD(TestRectangle_getClassShapeName)
 		{
-			Assert::IsTrue(ShapeType::Rectangle == Rectangle::getClassShapeType());
+			Assert::IsTrue(Rectangle::getClassShapeName() == "Rectangle");
 		}
 
-		TEST_METHOD(TestRectangle_GetShapeType)
+		TEST_METHOD(TestRectangle_getShapeName)
 		{
 			Rectangle rec;
-			Assert::IsTrue(ShapeType::Rectangle == rec.getShapeType());
+			Assert::IsTrue(rec.getShapeName() == "Rectangle");
 		}
 
 		TEST_METHOD(TestRectangle_GetPerimeter)
@@ -142,12 +142,12 @@ namespace UnitTest
 
 		}
 
-		TEST_METHOD(TestRectangle_ToString) {
+		TEST_METHOD(TestRectangle_getInfoString) {
 			double width = 5;
 			double height = 6;
 			Rectangle rec(width, height);
 			std::string expected("Rectangle(width=5,height=6)");
-			Assert::AreEqual(expected, rec.toString());
+			Assert::AreEqual(expected, rec.getInfoString());
 		}
 	};
 }

@@ -26,10 +26,10 @@ namespace UnitTest
 			Assert::AreEqual(3., rec.getSecondSide());
 		}
 
-		TEST_METHOD(TestRectangularTriangle_SetSize)
+		TEST_METHOD(TestRectangularTriangle_setDimension)
 		{
 			RectangularTriangle rec;
-			rec.setSize(2., 3.);
+			rec.setDimension(2., 3.);
 			Assert::AreEqual(2., rec.getFirstSide());
 			Assert::AreEqual(3., rec.getSecondSide());
 		}
@@ -46,15 +46,15 @@ namespace UnitTest
 			Assert::AreEqual(3., rec.getSecondSide());
 		}
 
-		TEST_METHOD(TestRectangularTriangle_GetClassShapeType)
+		TEST_METHOD(TestRectangularTriangle_getClassShapeName)
 		{
-			Assert::IsTrue(ShapeType::RectangularTriangle == RectangularTriangle::getClassShapeType());
+			Assert::IsTrue(RectangularTriangle::getClassShapeName() == "RectangularTriangle");
 		}
 
-		TEST_METHOD(TestRectangularTriangle_GetShapeType)
+		TEST_METHOD(TestRectangularTriangle_getShapeName)
 		{
 			RectangularTriangle rec;
-			Assert::IsTrue(ShapeType::RectangularTriangle == rec.getShapeType());
+			Assert::IsTrue(rec.getShapeName() == "RectangularTriangle");
 		}
 
 		TEST_METHOD(TestRectangularTriangle_GetPerimeter)
@@ -131,12 +131,12 @@ namespace UnitTest
 
 		}
 
-		TEST_METHOD(TestRectangularTriangle_ToString) {
+		TEST_METHOD(TestRectangularTriangle_getInfoString) {
 			double side1 = 5;
 			double side2 = 6;
 			RectangularTriangle tri(side1, side2);
 			std::string expected("RectangularTriangle(side1=5,side2=6)");
-			Assert::AreEqual(expected, tri.toString());
+			Assert::AreEqual(expected, tri.getInfoString());
 		}
 	};
 }

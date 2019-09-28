@@ -1,5 +1,4 @@
 #include "Square.h"
-#include <sstream>
 
 Square::Square() : side(0.) {
 
@@ -11,17 +10,15 @@ Square::Square(double sideLength) : side(sideLength) {
 
 Square::~Square() {}
 
-void Square::setSize(double sideLength) {
+void Square::setDimension(double sideLength) {
 	side = sideLength;
 }
 
-// Return the number of double value used in serialized input
 size_t Square::getSerializationSize() const {
 	return 1;
 }
 
-// Set input data from serialied double values
-void Square::setSize(const std::vector<double>& serializedInput) {
+void Square::setDimension(const std::vector<double>& serializedInput) {
 	std::vector<double> data = getSerializedData(serializedInput);
 	side = data[0];
 }
@@ -30,12 +27,12 @@ double Square::getSide() const {
 	return side;
 }
 
-ShapeType Square::getClassShapeType() {
-	return ShapeType::Square;
+std::string Square::getClassShapeName() {
+	return "Square";
 }
 
-ShapeType Square::getShapeType() const {
-	return ShapeType::Square;
+std::string Square::getShapeName() const {
+	return "Square";
 };
 
 double Square::getPerimeter() const {
@@ -52,7 +49,7 @@ bool Square::isValid() const {
 	return side > 0;
 }
 
-std::string Square::toString() const {
+std::string Square::getInfoString() const {
 	std::stringstream ss;
 	ss << "Square(side=" << side << ")";
 	return ss.str();

@@ -3,7 +3,7 @@
 #include "RectangleShape.h"
 
 
-// The Square class describes a square with its side length.
+// The Square class describes a square from its side length.
 
 class Square : public RectangleShape {
 
@@ -19,24 +19,24 @@ public:
 	virtual ~Square();
 
 	// Set side length of the square
-	void setSize(double sideLength);
+	void setDimension(double sideLength);
 
 	// Get side length of the square
 	double getSide() const;
 
-	// return the shape type of the class
-	static ShapeType getClassShapeType();
+	// return the shape name of the class
+	static std::string getClassShapeName();
 
 	/////// Overriding functions ///////////
 
-	// Return the number of double value used in serialized input
+	// Return the number of double values used in serialized input
 	size_t getSerializationSize() const;
 
-	// Set input data from serialied double values
-	void setSize(const std::vector<double>& serializedInput);
+	// Set input data from serialized double values
+	void setDimension(const std::vector<double>& serializedInput);
 
-	// Return the shape type of the object
-	ShapeType getShapeType() const;
+	// Return the shape name of the object
+	std::string getShapeName() const;
 
 	// Compute and return the perimeter of the square
 	// Return 0. if the square is invalid.
@@ -50,7 +50,7 @@ public:
 	bool isValid() const;
 
 	// Return the string containing the shape info
-	std::string toString() const;
+	std::string getInfoString() const;
 
 private:
 

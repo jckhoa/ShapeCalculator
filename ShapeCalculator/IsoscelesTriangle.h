@@ -3,7 +3,7 @@
 
 #include "TriangleShape.h"
 
-// The IsoscelesTriangle class describes an isosceles triangle with its side and base lengths.
+// The IsoscelesTriangle class describes an isosceles triangle from its side and base lengths.
 
 class IsoscelesTriangle : public TriangleShape {
 
@@ -19,7 +19,7 @@ public:
 	virtual ~IsoscelesTriangle();
 
 	// Set the side and base lengths of the isosceles triangle
-	void setSize(double side, double base);
+	void setDimension(double side, double base);
 
 	// Return the side length of the isosceles triangle
 	double getSide() const;
@@ -27,19 +27,19 @@ public:
 	// Return the base length of the isosceles triangle
 	double getBase() const;
 
-	// Return the shape type of the class
-	static ShapeType getClassShapeType();
+	// Return the shape name of the class
+	static std::string getClassShapeName();
 
 	/////// Overriding functions ///////////
 
-	// Return the number of double value used in serialized input
+	// Return the number of double values used in serialized input
 	size_t getSerializationSize() const;
 
-	// Set input data from serialied double values
-	void setSize(const std::vector<double>& serializedInput);
+	// Set input data from serialized double values
+	void setDimension(const std::vector<double>& serializedInput);
 
-	// Return the shape type of the object
-	ShapeType getShapeType() const;
+	// Return the shape name of the object
+	std::string getShapeName() const;
 
 	// Compute and return the perimeter of the isosceles triangle
 	// Return 0. if the isosceles triangle is invalid.
@@ -53,11 +53,12 @@ public:
 	bool isValid() const;
 
 	// Return the string containing the shape info
-	std::string toString() const;
+	std::string getInfoString() const;
 
 private:
 
 	double side; // side length of the isosceles triangle
 	
 	double base; // base length of the isoceles triangle
+
 };

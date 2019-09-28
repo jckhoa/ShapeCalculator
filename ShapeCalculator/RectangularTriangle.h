@@ -18,7 +18,7 @@ public:
 	virtual ~RectangularTriangle();
 
 	// Set the side lengths of the rectangular triangle.
-	void setSize(double side1, double side2);
+	void setDimension(double side1, double side2);
 
 	// Get the first side length of the rectangular triangle.
 	double getFirstSide() const;
@@ -26,19 +26,19 @@ public:
 	// Get the second side length of the rectangular triangle.
 	double getSecondSide() const;
 
-	// Return the shape type of the class
-	static ShapeType getClassShapeType();
+	// Return the shape name of the class
+	static std::string getClassShapeName();
 
 	/////// Overriding functions ///////////
 
-	// Return the number of double value used in serialized input
+	// Return the number of double values used in serialized input
 	size_t getSerializationSize() const;
 
-	// Set input data from serialied double values
-	void setSize(const std::vector<double>& serializedInput);
+	// Set input data from serialized double values
+	void setDimension(const std::vector<double>& serializedInput);
 
-	// Return the shape type of the object
-	ShapeType getShapeType() const;
+	// Return the shape name of the object
+	std::string getShapeName() const;
 
 	// Compute and return the perimeter of the rectangular triangle
 	// Return 0. if the rectangular triangle is invalid.
@@ -52,7 +52,7 @@ public:
 	bool isValid() const;
 
 	// Return the string containing the shape info
-	std::string toString() const;
+	std::string getInfoString() const;
 
 private:
 

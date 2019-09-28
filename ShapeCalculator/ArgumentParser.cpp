@@ -13,11 +13,11 @@ ArgumentParser::~ArgumentParser() {
 	}
 }
 
-const std::map<std::string, OptionBase*>& ArgumentParser::getOptions() const {
+const std::map<std::string, ShapeOptionBase*>& ArgumentParser::getOptions() const {
 	return options;
 }
 
-bool ArgumentParser::parseOptionArgument(const OptionBase& option, int &index, int argc, char* argv[]) {
+bool ArgumentParser::parseOptionArgument(const ShapeOptionBase& option, int &index, int argc, char* argv[], std::vector<double>& params) {
 	for (unsigned int i = 0; i < option.getArgumentCount(); ++i) {
 		++index;
 		if (index >= argc) return false;
@@ -25,8 +25,7 @@ bool ArgumentParser::parseOptionArgument(const OptionBase& option, int &index, i
 		std::stringstream ss(argv[index]);
 		ss >> value;
 		if (ss.fail()) return false;
-		if (i >= params.size()) return false;
-		params[i] = value;
+		params.push_back(value);
 	}
 	return true;
 }
@@ -67,8 +66,8 @@ bool ArgumentParser::process(int argc, char* argv[], std::string& errMessage) {
 				return false;
 			} 
 
-
-			if (!parseOptionArgument(*iter->second, index, argc, argv)) {
+			std::vector<double> params;
+			if (!parseOptionArgument(*iter->second, index, argc, argv, params)) {
 				errMessage = iter->second->getArgumentErrorMessage();
 				return false;
 			}
@@ -89,8 +88,11 @@ std::string ArgumentParser::getHelpMessage() const {
 	ss << "Current available options: " << std::endl;
 	ss << "-h : show this help message." << std::endl;
 	for (const auto& item : options) {
-		if (item.first.compare("h") == 0) continue;
-		ss << "-" << item.first << " " << item.second->getArgumentMessage() << " : " << item.second->getMessage() << std::endl;
+		const ShapeOptionBase& option = *item.second;
+		if (option.getOptionName() == "h") continue;
+		ss << "-" << option.getOptionName() 
+			<< " (" << option.getFullCommand() << ") : " << option.getOptionDescription() << ". " 
+			<< option.getArgumentDescription() << std::endl;
 	}
 	return ss.str();
 }

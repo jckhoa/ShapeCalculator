@@ -33,15 +33,15 @@ namespace UnitTest
 
 		}
 
-		TEST_METHOD(TestDonut_SetSize)
+		TEST_METHOD(TestDonut_setDimension)
 		{
 			Donut d;
-			d.setSize(2., 3.);
+			d.setDimension(2., 3.);
 			Assert::AreEqual(2., d.getInternalRadius());
 			Assert::AreEqual(3., d.getExternalRadius());
 
 			// Check if the internal and external radius are still correct after switching their order in the constructor
-			d.setSize(3., 2.);
+			d.setDimension(3., 2.);
 			Assert::AreEqual(2., d.getInternalRadius());
 			Assert::AreEqual(3., d.getExternalRadius());
 
@@ -65,15 +65,15 @@ namespace UnitTest
 			Assert::AreEqual(5., d2.getExternalRadius());
 		}
 
-		TEST_METHOD(TestDonut_GetClassShapeType)
+		TEST_METHOD(TestDonut_getClassShapeName)
 		{
-			Assert::IsTrue(ShapeType::Donut == Donut::getClassShapeType());
+			Assert::IsTrue(Donut::getClassShapeName() == "Donut");
 		}
 
-		TEST_METHOD(TestDonut_GetShapeType)
+		TEST_METHOD(TestDonut_getShapeName)
 		{
 			Donut c;
-			Assert::IsTrue(ShapeType::Donut == c.getShapeType());
+			Assert::IsTrue(c.getShapeName() == "Donut");
 		}
 
 		TEST_METHOD(TestDonut_GetPerimeter)
@@ -172,12 +172,12 @@ namespace UnitTest
 		}
 
 
-		TEST_METHOD(TestDonut_ToString) {
+		TEST_METHOD(TestDonut_getInfoString) {
 			double radius1 = 5.5;
 			double radius2 = 3.5;
 			Donut d(radius1, radius2);
 			std::string expected("Donut(intern_radius=3.5,extern_radius=5.5)");
-			Assert::AreEqual(expected, d.toString());
+			Assert::AreEqual(expected, d.getInfoString());
 		}
 	};
 }

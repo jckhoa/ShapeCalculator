@@ -4,7 +4,7 @@
 #include <map>
 #include <array>
 
-#include "Option.h"
+#include "ShapeOption.h"
 
 
 // The class ArgumentParser is used for parsing argument from command line for the Shape Calculator program
@@ -18,14 +18,13 @@ public:
 	~ArgumentParser();
 
 	//Return the options
-	const std::map<std::string, OptionBase*>& getOptions() const;
+	const std::map<std::string, ShapeOptionBase*>& getOptions() const;
 
-	//Add option functions, allow upto only 3 arguments
+	//Add an option for a shape
 	template<class T>
-	void addOption(const std::string& optionName, const std::string& argumentDescription
-				, const std::string& shapeName, unsigned int argumentCount) {
-		options[optionName] = new Option<T>(optionName, argumentDescription, shapeName, argumentCount);
-
+	void addOption(const std::string& optionName, const std::string& arguments
+		, const std::string& optionDescription = "", const std::string& argumentDescription = "") {
+		options[optionName] = new ShapeOption<T>(optionName, arguments, optionDescription, argumentDescription);
 	}
 
 	// parse command line arguments.
@@ -53,11 +52,12 @@ private:
 	ArgumentParser operator=(ArgumentParser&& other) {}
 
 	// Parse parameters for shape calculation, this function is used inside the process(...) function
-	bool parseOptionArgument(const OptionBase& option, int &index, int argc, char* argv[]);
+	bool parseOptionArgument(const ShapeOptionBase& option, int &index, int argc, char* argv[], std::vector<double>& params);
 
 private:
+
 	// Store available options
-	std::map<std::string, OptionBase*> options;
+	std::map<std::string, ShapeOptionBase*> options;
 	
 	// Store the results
 	std::vector<std::string> results;

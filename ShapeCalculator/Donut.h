@@ -2,7 +2,7 @@
 
 #include "Circle.h"
 
-// The Donut (or Couronne) class describes a donut shape with two concentric circles.
+// The Donut (or Couronne) class describes a donut shape from the radii of two concentric circles.
 
 class Donut : public CircleShape {
 
@@ -18,7 +18,7 @@ public:
 	virtual ~Donut();
 
 	// Set the internal and external radii. Their order is not important.
-	void setSize(double radius1, double radius2);
+	void setDimension(double radius1, double radius2);
 
 	// Return the internal radius of the donut.
 	double getInternalRadius() const;
@@ -26,19 +26,19 @@ public:
 	// Return the external radius of the donut.
 	double getExternalRadius() const;
 
-	// Return the shape type of the class
-	static ShapeType getClassShapeType();
+	// Return the shape name of the class
+	static std::string getClassShapeName();
 
 	/////// Overriding functions from base classes ///////////
 
-	// Return the number of double value used in serialized input
+	// Return the number of double values used in serialized input
 	size_t getSerializationSize() const;
 
-	// Set input data from serialied double values
-	void setSize(const std::vector<double>& serializedInput);
+	// Set input data from serialized double values
+	void setDimension(const std::vector<double>& serializedInput);
 
-	// Return the shape type of the object
-	ShapeType getShapeType() const;
+	// Return the shape name of the object
+	std::string getShapeName() const;
 
 	// Compute and return the perimeter of the donut
 	// Return 0. if the donut is invalid.
@@ -48,13 +48,17 @@ public:
 	// Return 0. if the donut is invalid.
 	double getArea() const;
 
-	// Return true if the donut is valid (i.e. the internal and external circle are valid and their outlines do not overlap), false otherwise
+	// Return true if the donut is valid (i.e. the internal and external circle are valid 
+	// and their outlines do not overlap), false otherwise
 	bool isValid() const;
 
 	// Return the string containing the shape info
-	std::string toString() const;
+	std::string getInfoString() const;
 
 private:
+
 	Circle ci; // internal circle
+	
 	Circle ce; // external circle
+
 };

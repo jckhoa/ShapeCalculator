@@ -2,7 +2,7 @@
 
 #include "Shape2D.h"
 
-// The abstract TriangleShape class is for defining all the triangle shape types
+// The abstract TriangleShape class is a base class for defining all the trianglar shapes.
 
 class TriangleShape: public Shape2D {
 

@@ -14,21 +14,23 @@
 
 #include "ArgumentParser.h"
 
-
-
 int main(int argc, char *argv[]) {
 
+	// Create an argument parser
 	ArgumentParser parser;
 
-	parser.addOption<Circle>("c", "radius", "Circle");
-	parser.addOption<Donut>("d", "internalRadius externalRadius", "Donut");
-	parser.addOption<Rectangle>("r", "width, height", "Rectangle");
-	parser.addOption<Square>("s", "side", "Square");
-	parser.addOption<Triangle>("t", "side1, side2, side3", "Triangle");
-	parser.addOption<IsoscelesTriangle>("it", "side, base", "IsoscelesTriangle");
-	parser.addOption<RectangularTriangle>("rt", "side1, side2", "RectanglarTriangle");
+	// Add command line option for each shape
+	parser.addOption<Circle>("c", "radius", "Compute perimeter and area of a Circle");
+	parser.addOption<Donut>("d", "internalRadius externalRadius", "Compute perimeter and area of a Donut");
+	parser.addOption<Rectangle>("r", "width height", "Compute perimeter and area of a Rectangle");
+	parser.addOption<Square>("s", "side", "Compute perimeter and area of a Square");
+	parser.addOption<Triangle>("t", "side1 side2 side3", "Compute perimeter and area of a Triangle");
+	parser.addOption<IsoscelesTriangle>("it", "side base", "Compute perimeter and area of a IsoscelesTriangle");
+	parser.addOption<RectangularTriangle>("rt", "side1 side2", "Compute perimeter and area of a RectanglarTriangle");
 
 	std::string errorMessage;
+
+	// Process the command line and print out results or errors if any in the console
 	if (parser.process(argc, argv, errorMessage)) {
 		std::cout << parser.getResults() << std::endl;
 	}
@@ -36,6 +38,8 @@ int main(int argc, char *argv[]) {
 		std::cout << errorMessage << std::endl;
 		std::cout << std::endl << parser.getHelpMessage() << std::endl;
 	}
+
+	return 0;
 
 	/*
 	// some Circle usage
@@ -49,17 +53,17 @@ int main(int argc, char *argv[]) {
 		Circle c3(5.);
 		Circle c4(-5.);
 
-		// Get object shape type
-		ShapeType objectShapeType = c1.getShapeType(); // should return ShapeType::Circle
+		// Get object shape name
+		std::string objectstd::string = c1.getShapeName(); // should return std::string::Circle
 
-		// Get class shape type
-		ShapeType classShapeType = c1.getClassShapeType(); // should return ShapeType::Circle
+		// Get class shape name
+		std::string classstd::string = c1.getClassShapeName(); // should return std::string::Circle
 
 		// Show a circle information
-		std::cout << "Info of c1: " << c1.toString() << std::endl;
-		std::cout << "Info of c2: " << c2.toString() << std::endl;
-		std::cout << "Info of c3: " << c3.toString() << std::endl;
-		std::cout << "Info of c4: " << c4.toString() << std::endl;
+		std::cout << "Info of c1: " << c1.getInfoString() << std::endl;
+		std::cout << "Info of c2: " << c2.getInfoString() << std::endl;
+		std::cout << "Info of c3: " << c3.getInfoString() << std::endl;
+		std::cout << "Info of c4: " << c4.getInfoString() << std::endl;
 
 		// Get and show the radii of the circles in the console
 		std::cout << "Radius of c1: " << c1.getRadius() << std::endl;
@@ -90,15 +94,15 @@ int main(int argc, char *argv[]) {
 		Triangle tri3(3., 4., 5.);
 
 		// get and show if the triangles are valid
-		std::cout << tri1.toString() << " is " << (tri1.isValid() ? "valid" : "invalid") << ", because the sum of the first two sides is not greater than the third side" << std::endl;
-		std::cout << tri2.toString() << " is " << (tri2.isValid() ? "valid" : "invalid") << ", because the sum of the last two sides is not greater than the third side" << std::endl;
-		std::cout << tri3.toString() << " is " << (tri3.isValid() ? "valid" : "invalid") << ", because the sum of any two sides is greater than the third side" << std::endl;
+		std::cout << tri1.getInfoString() << " is " << (tri1.isValid() ? "valid" : "invalid") << ", because the sum of the first two sides is not greater than the third side" << std::endl;
+		std::cout << tri2.getInfoString() << " is " << (tri2.isValid() ? "valid" : "invalid") << ", because the sum of the last two sides is not greater than the third side" << std::endl;
+		std::cout << tri3.getInfoString() << " is " << (tri3.isValid() ? "valid" : "invalid") << ", because the sum of any two sides is greater than the third side" << std::endl;
 
 		// get and show the triangle perimeters and areas
 		// An invalid triangle always return zero perimeter and zero area.
-		std::cout << tri1.toString() << " has perimeter of " << tri1.getPerimeter() << " and area of " << tri1.getArea() << std::endl;
-		std::cout << tri2.toString() << " has perimeter of " << tri2.getPerimeter() << " and area of " << tri2.getArea() << std::endl;
-		std::cout << tri3.toString() << " has perimeter of " << tri3.getPerimeter() << " and area of " << tri3.getArea() << std::endl;
+		std::cout << tri1.getInfoString() << " has perimeter of " << tri1.getPerimeter() << " and area of " << tri1.getArea() << std::endl;
+		std::cout << tri2.getInfoString() << " has perimeter of " << tri2.getPerimeter() << " and area of " << tri2.getArea() << std::endl;
+		std::cout << tri3.getInfoString() << " has perimeter of " << tri3.getPerimeter() << " and area of " << tri3.getArea() << std::endl;
 
 	}
 
@@ -142,7 +146,7 @@ int main(int argc, char *argv[]) {
 		TriangleShape* triangles[3] = { new Triangle(3., 4., 5.), new IsoscelesTriangle(5, 6), new RectangularTriangle(8, 10) };
 		std::cout << "The perimeters of the triangles are: " << std::endl;
 		for (int i = 0; i < 3; ++i) {
-			std::cout << triangles[i]->toString() << " has perimeter of " << triangles[i]->getPerimeter() << std::endl;
+			std::cout << triangles[i]->getInfoString() << " has perimeter of " << triangles[i]->getPerimeter() << std::endl;
 		}
 		for (int i = 0; i < 3; ++i) {
 			delete triangles[i];
@@ -160,12 +164,12 @@ int main(int argc, char *argv[]) {
 
 		std::cout << "Validity of the 2D shapes: " << std::endl;
 		for (const auto& shape : shapes) {
-			std::cout << shape->toString() << " is " << (shape->isValid() ? "valid" : "invalid") << std::endl;
+			std::cout << shape->getInfoString() << " is " << (shape->isValid() ? "valid" : "invalid") << std::endl;
 		}
 
 		for (auto& shape : shapes) delete shape;
 	}
 	*/
-	return 0;
+
 
 }
