@@ -7,8 +7,7 @@
 class Triangle: public TriangleShape {
 
 public:
-
-	// Construct a triangle with all the side lengths set to zeros.
+	// Construct a triangle with the length of 3 sides set to zeros
 	Triangle();
 
 	// Construct a triangle with the length of 3 sides
@@ -33,7 +32,13 @@ public:
 	static ShapeType getClassShapeType();
 
 	/////// Overriding functions ///////////
-	
+
+	// Return the number of double value used in serialized input
+	size_t getSerializationSize() const;
+
+	// Set input data from serialied double values
+	void setSize(const std::vector<double>& serializedInput);
+
 	// Return the shape type of the object
 	ShapeType getShapeType() const;
 

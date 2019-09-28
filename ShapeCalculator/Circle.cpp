@@ -11,6 +11,18 @@ void Circle::setSize(double radius) {
 	this->radius = radius;
 }
 
+// Return the number of double value used in serialized input
+size_t Circle::getSerializationSize() const {
+	return 1;
+}
+
+// Set input data from serialied double values
+void Circle::setSize(const std::vector<double>& serializedInput) {
+	std::vector<double> data(serializedInput);
+	data.resize(getSerializationSize(), 0.);
+	radius = data[0];
+}
+
 double Circle::getRadius() const {
 	return radius;
 }

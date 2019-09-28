@@ -9,7 +9,7 @@ class Circle : public CircleShape {
 
 public:
 
-	// Construct a circle with a radius of zero.
+	// Construct a circle with radius set to zero.
 	Circle();
 
 	// Construct a circle from the radius value.
@@ -19,7 +19,7 @@ public:
 	virtual ~Circle();
 
 	// Set the radius of the circle
-	void setSize(double radius);
+	void setSize(double radius = 0.);
 
 	// Return the radius of the circle
 	double getRadius() const;
@@ -28,6 +28,12 @@ public:
 	static ShapeType getClassShapeType();
 
 	/////// Overriding functions from base classes ///////////
+
+	// Return the number of double value used in serialized input
+	size_t getSerializationSize() const;
+
+	// Set input data from serialied double values
+	void setSize(const std::vector<double>& serializedInput);
 
 	// Return the shape type of the object
 	ShapeType getShapeType() const;

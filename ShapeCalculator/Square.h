@@ -6,8 +6,10 @@
 // The Square class describes a square with its side length.
 
 class Square : public RectangleShape {
+
 public:
-	// Construct a square with side lengths set to zeros.
+
+	// Construct a square with side length set to zero.
 	Square();
 
 	// Construct a square from side length value.
@@ -26,6 +28,12 @@ public:
 	static ShapeType getClassShapeType();
 
 	/////// Overriding functions ///////////
+
+	// Return the number of double value used in serialized input
+	size_t getSerializationSize() const;
+
+	// Set input data from serialied double values
+	void setSize(const std::vector<double>& serializedInput);
 
 	// Return the shape type of the object
 	ShapeType getShapeType() const;

@@ -23,6 +23,18 @@ void Donut::setSize(double radius1, double radius2) {
 	}
 }
 
+
+// Return the number of double value used in serialized input
+size_t Donut::getSerializationSize() const {
+	return 2;
+}
+
+// Set input data from serialied double values
+void Donut::setSize(const std::vector<double>& serializedInput) {
+	std::vector<double> data = getSerializedData(serializedInput);
+	setSize(data[0], data[1]);
+}
+
 double Donut::getInternalRadius() const {
 	return ci.getRadius();
 }

@@ -14,6 +14,19 @@ void Rectangle::setSize(double width, double height) {
 	this->height = height;
 }
 
+// Return the number of double value used in serialized input
+size_t Rectangle::getSerializationSize() const {
+	return 2;
+}
+
+// Set input data from serialied double values
+void Rectangle::setSize(const std::vector<double>& serializedInput) {
+	std::vector<double> data = getSerializedData(serializedInput);
+	width = data[0];
+	height = data[1];
+}
+
+
 double Rectangle::getWidth() const {
 	return width;
 }

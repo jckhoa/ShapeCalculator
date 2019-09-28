@@ -7,7 +7,8 @@
 class Donut : public CircleShape {
 
 public:
-	// Construct a donut with the internal and external radii set to zeros.
+
+	// Construct a donut with the radii set to zero
 	Donut();
 
 	// Construct a donut from the internal and external radii. Their order is not important.
@@ -29,6 +30,12 @@ public:
 	static ShapeType getClassShapeType();
 
 	/////// Overriding functions from base classes ///////////
+
+	// Return the number of double value used in serialized input
+	size_t getSerializationSize() const;
+
+	// Set input data from serialied double values
+	void setSize(const std::vector<double>& serializedInput);
 
 	// Return the shape type of the object
 	ShapeType getShapeType() const;

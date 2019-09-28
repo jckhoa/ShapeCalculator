@@ -16,6 +16,19 @@ void RectangularTriangle::setSize(double side1, double side2) {
 	this->s2 = side2;
 }
 
+
+// Return the number of double value used in serialized input
+size_t RectangularTriangle::getSerializationSize()  const {
+	return 2;
+}
+
+// Set input data from serialied double values
+void RectangularTriangle::setSize(const std::vector<double>& serializedInput) {
+	std::vector<double> data = getSerializedData(serializedInput);
+	s1 = data[0];
+	s2 = data[1];
+}
+
 double RectangularTriangle::getFirstSide() const {
 	return s1;
 }

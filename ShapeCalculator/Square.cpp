@@ -15,6 +15,17 @@ void Square::setSize(double sideLength) {
 	side = sideLength;
 }
 
+// Return the number of double value used in serialized input
+size_t Square::getSerializationSize() const {
+	return 1;
+}
+
+// Set input data from serialied double values
+void Square::setSize(const std::vector<double>& serializedInput) {
+	std::vector<double> data = getSerializedData(serializedInput);
+	side = data[0];
+}
+
 double Square::getSide() const {
 	return side;
 }

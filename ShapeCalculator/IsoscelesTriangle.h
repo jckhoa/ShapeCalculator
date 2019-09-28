@@ -8,7 +8,8 @@
 class IsoscelesTriangle : public TriangleShape {
 
 public:
-	// Construct an isosceles triangle with side and base set to zero.
+
+	// Construct an isosceles triangle with side and base lengths set to zero.
 	IsoscelesTriangle();
 
 	// Construct an isosceles triangle from side and base lengths.
@@ -30,7 +31,13 @@ public:
 	static ShapeType getClassShapeType();
 
 	/////// Overriding functions ///////////
-	
+
+	// Return the number of double value used in serialized input
+	size_t getSerializationSize() const;
+
+	// Set input data from serialied double values
+	void setSize(const std::vector<double>& serializedInput);
+
 	// Return the shape type of the object
 	ShapeType getShapeType() const;
 

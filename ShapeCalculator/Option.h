@@ -1,43 +1,50 @@
 #pragma once
 
-#include <sstream>
+#include "OptionBase.h"
+#include <functional>
 
-class Option {
+template <class T>
+class Option : public OptionBase {
 
 public:
-	Option() {}
-
-	Option(const std::string& optionName, const std::string& argumentDescription, const std::string& shapeName, unsigned int argumentCount)
-		: optionName(optionName), argumentDescription(argumentDescription), shapeName(shapeName), argumentCount(argumentCount)
+	// Construct the option
+	// optionName: set it to "r" if the command line option is to be "-r" for rectangle
+	// argmentDescription: set it to "width height" if the command line option is to be "-r width height"
+	// shapeName: set it to "Rectangle" if the command line option "-r" is for computing Rectangle
+	// argumentCount: set it to 2 for a Rectangle because two values are needed (width and height)
+	// setSizeFunction: function for setting the size of a shape. Set it to std::bind(&Rectangle::setSize, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3) for a rectangle, for example
+	Option(const std::string& optionName, const std::string& argumentDescription
+			, const std::string& shapeName, unsigned int argumentCount
+			, const std::function<void(T&, double, double, double)>& setSizeFunction)
+		: OptionBase(optionName, argumentDescription, shapeName, argumentCount), setSizeFunc(setSizeFunction)
 	{
 
 	}
-	
-	unsigned int getArgumentCount() const {
-		return argumentCount;
-	}
 
-	std::string getMessage() const {
+	std::string getShapeResult(const std::vector<double>& params) const {
+		T* shape = new T();
+
+		shape->setSize(params);
+		
 		std::stringstream ss;
-		ss << "Compute geometric parameters of " << shapeName << ". ";
+		ss << shape->toString();
+		if (shape->isValid()) {
+			ss << " has " << shape->getPropertyString() << ".";
+		}
+		else {
+			ss << " is invalid.";
+		}
+		
+		delete shape;
+
 		return ss.str();
 	}
 
-	std::string getArgumentErrorMessage() const {
-		std::stringstream ss;
-		ss << "Wrong argument type or number of arguments for " << shapeName << ".";
-		return ss.str();
-	}
-
-	std::string getArgumentMessage() const {
-		std::stringstream ss;
-		ss << argumentDescription;
-		return ss.str();
+	// Return the number of required arguments for shape computation
+	size_t getArgumentCount() {
+		return T().getSerializationSize();
 	}
 
 private:
-	std::string optionName;
-	std::string argumentDescription;
-	std::string shapeName;
-	unsigned int argumentCount;
+	std::function<void(T&, double, double, double)> setSizeFunc;
 };

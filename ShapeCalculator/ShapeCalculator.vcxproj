@@ -149,6 +149,7 @@
     <ClInclude Include="Donut.h" />
     <ClInclude Include="IsoscelesTriangle.h" />
     <ClInclude Include="Option.h" />
+    <ClInclude Include="OptionBase.h" />
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="RectangleShape.h" />
     <ClInclude Include="RectangularTriangle.h" />

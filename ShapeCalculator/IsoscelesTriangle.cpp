@@ -16,6 +16,20 @@ void IsoscelesTriangle::setSize(double side, double base) {
 	this->base = base;
 }
 
+
+// Return the number of double value used in serialized input
+size_t IsoscelesTriangle::getSerializationSize()  const {
+	return 2;
+}
+
+// Set input data from serialied double values
+void IsoscelesTriangle::setSize(const std::vector<double>& serializedInput) {
+	std::vector<double> data = getSerializedData(serializedInput);
+	side = data[0];
+	base = data[1];
+}
+
+
 double IsoscelesTriangle::getSide() const {
 	return side;
 }

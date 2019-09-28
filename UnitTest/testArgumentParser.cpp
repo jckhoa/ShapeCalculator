@@ -1,5 +1,15 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
+
+
+#include "Circle.h"
+#include "Donut.h"
+#include "Triangle.h"
+#include "IsoscelesTriangle.h"
+#include "RectangularTriangle.h"
+#include "Square.h"
+#include "Rectangle.h"
+
 #include "ArgumentParser.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -14,6 +24,15 @@ namespace UnitTest
 		TEST_METHOD(TestArgumentParser_CircleOption)
 		{
 			ArgumentParser ap;
+
+			ap.addOption<Circle, double>("c", "radius", "Circle", 1);
+			ap.addOption<Donut, double, double>("d", "internalRadius externalRadius", "Donut", 2);
+			ap.addOption<Rectangle, double, double>("r", "width, height", "Rectangle", 2);
+			ap.addOption<Square, double>("s", "side", "Square", 1);
+			ap.addOption<Triangle, double, double, double>("t", "side1, side2, side3", "Triangle", 3);
+			ap.addOption<IsoscelesTriangle, double, double>("it", "side, base", "IsoscelesTriangle", 2);
+			ap.addOption<RectangularTriangle, double, double>("rt", "side1, side2", "RectanglarTriangle", 2);
+
 			std::string errorMessage;
 			const auto& options = ap.getOptions();
 			
@@ -39,13 +58,13 @@ namespace UnitTest
 			int argc5 = 3;
 			char* argv5[3] = { "ShapeCalculator.exe", "-c", "abc"};
 			Assert::IsFalse(ap.process(argc5, argv5, errorMessage));
-			Assert::IsTrue(errorMessage.compare(options.at("c").getArgumentErrorMessage()) == 0);
+			Assert::IsTrue(errorMessage.compare(options.at("c")->getArgumentErrorMessage()) == 0);
 
 			//Invalid number of arguments type for the option
 			int argc6 = 3;
 			char* argv6[3] = { "ShapeCalculator.exe", "-c", "-s" };
 			Assert::IsFalse(ap.process(argc6, argv6, errorMessage));
-			Assert::IsTrue(errorMessage.compare(options.at("c").getArgumentErrorMessage()) == 0);
+			Assert::IsTrue(errorMessage.compare(options.at("c")->getArgumentErrorMessage()) == 0);
 
 		}
 
@@ -53,6 +72,15 @@ namespace UnitTest
 		TEST_METHOD(TestArgumentParser_DonutOption)
 		{
 			ArgumentParser ap;
+
+			ap.addOption<Circle, double>("c", "radius", "Circle", 1);
+			ap.addOption<Donut, double, double>("d", "internalRadius externalRadius", "Donut", 2);
+			ap.addOption<Rectangle, double, double>("r", "width, height", "Rectangle", 2);
+			ap.addOption<Square, double>("s", "side", "Square", 1);
+			ap.addOption<Triangle, double, double, double>("t", "side1, side2, side3", "Triangle", 3);
+			ap.addOption<IsoscelesTriangle, double, double>("it", "side, base", "IsoscelesTriangle", 2);
+			ap.addOption<RectangularTriangle, double, double>("rt", "side1, side2", "RectanglarTriangle", 2);
+
 			std::string errorMessage;
 			const auto& options = ap.getOptions();
 			
@@ -78,13 +106,13 @@ namespace UnitTest
 			int argc5 = 4;
 			char* argv5[4] = { "ShapeCalculator.exe", "-d", "7.", "abc" };
 			Assert::IsFalse(ap.process(argc5, argv5, errorMessage));
-			Assert::IsTrue(errorMessage.compare(options.at("d").getArgumentErrorMessage()) == 0);
+			Assert::IsTrue(errorMessage.compare(options.at("d")->getArgumentErrorMessage()) == 0);
 
 			//Invalid number of arguments type for the option
 			int argc6 = 4;
 			char* argv6[4] = { "ShapeCalculator.exe", "-d", "4", "-s" };
 			Assert::IsFalse(ap.process(argc6, argv6, errorMessage));
-			Assert::IsTrue(errorMessage.compare(options.at("d").getArgumentErrorMessage()) == 0);
+			Assert::IsTrue(errorMessage.compare(options.at("d")->getArgumentErrorMessage()) == 0);
 			
 		}
 
@@ -92,6 +120,15 @@ namespace UnitTest
 		TEST_METHOD(TestArgumentParser_SquareOption)
 		{
 			ArgumentParser ap;
+
+			ap.addOption<Circle, double>("c", "radius", "Circle", 1);
+			ap.addOption<Donut, double, double>("d", "internalRadius externalRadius", "Donut", 2);
+			ap.addOption<Rectangle, double, double>("r", "width, height", "Rectangle", 2);
+			ap.addOption<Square, double>("s", "side", "Square", 1);
+			ap.addOption<Triangle, double, double, double>("t", "side1, side2, side3", "Triangle", 3);
+			ap.addOption<IsoscelesTriangle, double, double>("it", "side, base", "IsoscelesTriangle", 2);
+			ap.addOption<RectangularTriangle, double, double>("rt", "side1, side2", "RectanglarTriangle", 2);
+
 			std::string errorMessage;
 			const auto& options = ap.getOptions();
 
@@ -117,13 +154,13 @@ namespace UnitTest
 			int argc5 = 3;
 			char* argv5[3] = { "ShapeCalculator.exe", "-s", "abc" };
 			Assert::IsFalse(ap.process(argc5, argv5, errorMessage));
-			Assert::IsTrue(errorMessage.compare(options.at("s").getArgumentErrorMessage()) == 0);
+			Assert::IsTrue(errorMessage.compare(options.at("s")->getArgumentErrorMessage()) == 0);
 
 			//Invalid number of arguments type for the option
 			int argc6 = 3;
 			char* argv6[3] = { "ShapeCalculator.exe", "-s", "-r" };
 			Assert::IsFalse(ap.process(argc6, argv6, errorMessage));
-			Assert::IsTrue(errorMessage.compare(options.at("s").getArgumentErrorMessage()) == 0);
+			Assert::IsTrue(errorMessage.compare(options.at("s")->getArgumentErrorMessage()) == 0);
 
 		}
 
@@ -131,6 +168,15 @@ namespace UnitTest
 		TEST_METHOD(TestArgumentParser_RectangleOption)
 		{
 			ArgumentParser ap;
+
+			ap.addOption<Circle, double>("c", "radius", "Circle", 1);
+			ap.addOption<Donut, double, double>("d", "internalRadius externalRadius", "Donut", 2);
+			ap.addOption<Rectangle, double, double>("r", "width, height", "Rectangle", 2);
+			ap.addOption<Square, double>("s", "side", "Square", 1);
+			ap.addOption<Triangle, double, double, double>("t", "side1, side2, side3", "Triangle", 3);
+			ap.addOption<IsoscelesTriangle, double, double>("it", "side, base", "IsoscelesTriangle", 2);
+			ap.addOption<RectangularTriangle, double, double>("rt", "side1, side2", "RectanglarTriangle", 2);
+
 			std::string errorMessage;
 			const auto& options = ap.getOptions();
 
@@ -156,13 +202,13 @@ namespace UnitTest
 			int argc5 = 4;
 			char* argv5[4] = { "ShapeCalculator.exe", "-r", "7.", "abc" };
 			Assert::IsFalse(ap.process(argc5, argv5, errorMessage));
-			Assert::IsTrue(errorMessage.compare(options.at("r").getArgumentErrorMessage()) == 0);
+			Assert::IsTrue(errorMessage.compare(options.at("r")->getArgumentErrorMessage()) == 0);
 
 			//Invalid number of arguments type for the option
 			int argc6 = 4;
 			char* argv6[4] = { "ShapeCalculator.exe", "-r", "4", "-s" };
 			Assert::IsFalse(ap.process(argc6, argv6, errorMessage));
-			Assert::IsTrue(errorMessage.compare(options.at("r").getArgumentErrorMessage()) == 0);
+			Assert::IsTrue(errorMessage.compare(options.at("r")->getArgumentErrorMessage()) == 0);
 
 		}
 
@@ -170,6 +216,15 @@ namespace UnitTest
 		TEST_METHOD(TestArgumentParser_RectangularTriangleOption)
 		{
 			ArgumentParser ap;
+
+			ap.addOption<Circle, double>("c", "radius", "Circle", 1);
+			ap.addOption<Donut, double, double>("d", "internalRadius externalRadius", "Donut", 2);
+			ap.addOption<Rectangle, double, double>("r", "width, height", "Rectangle", 2);
+			ap.addOption<Square, double>("s", "side", "Square", 1);
+			ap.addOption<Triangle, double, double, double>("t", "side1, side2, side3", "Triangle", 3);
+			ap.addOption<IsoscelesTriangle, double, double>("it", "side, base", "IsoscelesTriangle", 2);
+			ap.addOption<RectangularTriangle, double, double>("rt", "side1, side2", "RectanglarTriangle", 2);
+
 			std::string errorMessage;
 			const auto& options = ap.getOptions();
 			
@@ -195,13 +250,13 @@ namespace UnitTest
 			int argc5 = 4;
 			char* argv5[4] = { "ShapeCalculator.exe", "-rt", "7.", "abc" };
 			Assert::IsFalse(ap.process(argc5, argv5, errorMessage));
-			Assert::IsTrue(errorMessage.compare(options.at("rt").getArgumentErrorMessage()) == 0);
+			Assert::IsTrue(errorMessage.compare(options.at("rt")->getArgumentErrorMessage()) == 0);
 
 			//Invalid number of arguments type for the option
 			int argc6 = 4;
 			char* argv6[4] = { "ShapeCalculator.exe", "-rt", "4", "-s" };
 			Assert::IsFalse(ap.process(argc6, argv6, errorMessage));
-			Assert::IsTrue(errorMessage.compare(options.at("rt").getArgumentErrorMessage()) == 0);
+			Assert::IsTrue(errorMessage.compare(options.at("rt")->getArgumentErrorMessage()) == 0);
 			
 		}
 
@@ -210,6 +265,15 @@ namespace UnitTest
 		TEST_METHOD(TestArgumentParser_IsoscelesTriangleOption)
 		{
 			ArgumentParser ap;
+
+			ap.addOption<Circle, double>("c", "radius", "Circle", 1);
+			ap.addOption<Donut, double, double>("d", "internalRadius externalRadius", "Donut", 2);
+			ap.addOption<Rectangle, double, double>("r", "width, height", "Rectangle", 2);
+			ap.addOption<Square, double>("s", "side", "Square", 1);
+			ap.addOption<Triangle, double, double, double>("t", "side1, side2, side3", "Triangle", 3);
+			ap.addOption<IsoscelesTriangle, double, double>("it", "side, base", "IsoscelesTriangle", 2);
+			ap.addOption<RectangularTriangle, double, double>("rt", "side1, side2", "RectanglarTriangle", 2);
+
 			std::string errorMessage;
 			const auto& options = ap.getOptions();
 
@@ -235,13 +299,13 @@ namespace UnitTest
 			int argc5 = 4;
 			char* argv5[4] = { "ShapeCalculator.exe", "-it", "7.", "abc" };
 			Assert::IsFalse(ap.process(argc5, argv5, errorMessage));
-			Assert::IsTrue(errorMessage.compare(options.at("it").getArgumentErrorMessage()) == 0);
+			Assert::IsTrue(errorMessage.compare(options.at("it")->getArgumentErrorMessage()) == 0);
 
 			//Invalid number of arguments type for the option
 			int argc6 = 4;
 			char* argv6[4] = { "ShapeCalculator.exe", "-it", "4", "-s" };
 			Assert::IsFalse(ap.process(argc6, argv6, errorMessage));
-			Assert::IsTrue(errorMessage.compare(options.at("it").getArgumentErrorMessage()) == 0);
+			Assert::IsTrue(errorMessage.compare(options.at("it")->getArgumentErrorMessage()) == 0);
 			
 		}
 
@@ -250,6 +314,15 @@ namespace UnitTest
 		TEST_METHOD(TestArgumentParser_TriangleOption)
 		{
 			ArgumentParser ap;
+
+			ap.addOption<Circle, double>("c", "radius", "Circle", 1);
+			ap.addOption<Donut, double, double>("d", "internalRadius externalRadius", "Donut", 2);
+			ap.addOption<Rectangle, double, double>("r", "width, height", "Rectangle", 2);
+			ap.addOption<Square, double>("s", "side", "Square", 1);
+			ap.addOption<Triangle, double, double, double>("t", "side1, side2, side3", "Triangle", 3);
+			ap.addOption<IsoscelesTriangle, double, double>("it", "side, base", "IsoscelesTriangle", 2);
+			ap.addOption<RectangularTriangle, double, double>("rt", "side1, side2", "RectanglarTriangle", 2);
+
 			std::string errorMessage;
 			const auto& options = ap.getOptions();
 			
@@ -275,13 +348,13 @@ namespace UnitTest
 			int argc5 = 5;
 			char* argv5[5] = { "ShapeCalculator.exe", "-t", "7.", "abc", "3." };
 			Assert::IsFalse(ap.process(argc5, argv5, errorMessage));
-			Assert::IsTrue(errorMessage.compare(options.at("t").getArgumentErrorMessage()) == 0);
+			Assert::IsTrue(errorMessage.compare(options.at("t")->getArgumentErrorMessage()) == 0);
 			
 			//Invalid number of arguments type for the option
 			int argc6 = 4;
 			char* argv6[4] = { "ShapeCalculator.exe", "-t", "4", "5"};
 			Assert::IsFalse(ap.process(argc6, argv6, errorMessage));
-			Assert::IsTrue(errorMessage.compare(options.at("t").getArgumentErrorMessage()) == 0);
+			Assert::IsTrue(errorMessage.compare(options.at("t")->getArgumentErrorMessage()) == 0);
 			
 		}
 
@@ -290,6 +363,15 @@ namespace UnitTest
 		TEST_METHOD(TestArgumentParser_TwoOption)
 		{
 			ArgumentParser ap;
+
+			ap.addOption<Circle, double>("c", "radius", "Circle", 1);
+			ap.addOption<Donut, double, double>("d", "internalRadius externalRadius", "Donut", 2);
+			ap.addOption<Rectangle, double, double>("r", "width, height", "Rectangle", 2);
+			ap.addOption<Square, double>("s", "side", "Square", 1);
+			ap.addOption<Triangle, double, double, double>("t", "side1, side2, side3", "Triangle", 3);
+			ap.addOption<IsoscelesTriangle, double, double>("it", "side, base", "IsoscelesTriangle", 2);
+			ap.addOption<RectangularTriangle, double, double>("rt", "side1, side2", "RectanglarTriangle", 2);
+
 			std::string errorMessage;
 			const auto& options = ap.getOptions();
 

@@ -2,9 +2,8 @@
 
 #include <iostream>
 #include <vector>
-#include "ArgumentParser.h"
 
-/*
+
 #include "Circle.h"
 #include "Donut.h"
 #include "Triangle.h"
@@ -12,10 +11,23 @@
 #include "RectangularTriangle.h"
 #include "Square.h"
 #include "Rectangle.h"
-*/
+
+#include "ArgumentParser.h"
+
+
 
 int main(int argc, char *argv[]) {
+
 	ArgumentParser parser;
+
+	parser.addOption<Circle>("c", "radius", "Circle");
+	parser.addOption<Donut>("d", "internalRadius externalRadius", "Donut");
+	parser.addOption<Rectangle>("r", "width, height", "Rectangle");
+	parser.addOption<Square>("s", "side", "Square");
+	parser.addOption<Triangle>("t", "side1, side2, side3", "Triangle");
+	parser.addOption<IsoscelesTriangle>("it", "side, base", "IsoscelesTriangle");
+	parser.addOption<RectangularTriangle>("rt", "side1, side2", "RectanglarTriangle");
+
 	std::string errorMessage;
 	if (parser.process(argc, argv, errorMessage)) {
 		std::cout << parser.getResults() << std::endl;

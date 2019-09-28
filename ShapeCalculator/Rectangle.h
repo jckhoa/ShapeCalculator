@@ -5,9 +5,10 @@
 // The Rectangle class describes a rectangle with its width and height.
 
 class Rectangle : public RectangleShape {
+
 public:
 
-	// Construct a rectangle with width and height set to zeros.
+	// Construct a square with width and height set to zeros
 	Rectangle();
 
 	// Construct a rectangle from width and height values
@@ -32,6 +33,12 @@ public:
 	static ShapeType getClassShapeType();
 
 	/////// Overriding functions ///////////
+
+	// Return the number of double value used in serialized input
+	size_t getSerializationSize() const;
+
+	// Set input data from serialied double values
+	void setSize(const std::vector<double>& serializedInput);
 
 	// Return the shape type of the object
 	ShapeType getShapeType() const;
